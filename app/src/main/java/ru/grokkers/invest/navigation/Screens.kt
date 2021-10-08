@@ -1,7 +1,7 @@
 package ru.grokkers.invest.navigation
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import ru.grokkers.invest.ui.fragment.education.EducationFragment
+import ru.grokkers.invest.ui.fragment.education.list.EducationListFragment
 import ru.grokkers.invest.ui.fragment.greetingfragment.GreetingFragment
 
 /**
@@ -12,5 +12,5 @@ object Screens {
         get() = FragmentScreen { GreetingFragment() }
 
     val Education: FragmentScreen
-        get() = FragmentScreen { EducationFragment() }
+        get() = FragmentScreen { EducationListFragment() }
 }

@@ -1,4 +1,4 @@
-package ru.grokkers.invest.ui.fragment.education
+package ru.grokkers.invest.ui.fragment.education.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import ru.grokkers.invest.ui.base.BaseFragment
 /**
  * @author Onanov Aleksey (@onanov)
  */
-class EducationFragment : BaseFragment() {
+class EducationListFragment : BaseFragment() {
 
     private var _binding: FragmentEducationBinding? = null
     private val binding: FragmentEducationBinding get() = _binding!!
@@ -25,6 +25,11 @@ class EducationFragment : BaseFragment() {
 
 
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
