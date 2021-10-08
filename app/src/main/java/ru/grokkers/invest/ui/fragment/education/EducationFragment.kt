@@ -23,6 +23,7 @@ class EducationFragment : BaseFragment() {
         _binding = FragmentEducationBinding.inflate(inflater, container, false)
 
 
+
         return binding.root
     }
 

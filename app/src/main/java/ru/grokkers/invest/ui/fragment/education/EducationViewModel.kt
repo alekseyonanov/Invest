@@ -2,18 +2,20 @@ package ru.grokkers.invest.ui.fragment.education
 
 import android.app.Application
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import ru.grokkers.invest.ui.base.BaseViewModel
 import ru.grokkers.invest.ui.state.EducationState
+import javax.inject.Inject
 
 /**
  * @author Onanov Aleksey (@onanov)
  */
-@AndroidEntryPoint
-class EducationViewModel(application: Application) : BaseViewModel(application) {
+@HiltViewModel
+class EducationViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
 
     private val _uiState = MutableStateFlow<EducationState>(EducationState.Loading(true))
     val uiState = _uiState.asStateFlow()
