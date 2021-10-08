@@ -1,8 +1,9 @@
-package ru.grokkers.invest
+package ru.grokkers.invest.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
+import ru.grokkers.invest.R
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
