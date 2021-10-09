@@ -60,16 +60,6 @@ object Sample {
             favourite = false
         ),
         Education(
-            id = 12,
-            title = "Фьючерс - это ... репер?",
-            level = 1,
-            description = "Расскажем, что такое фьючерсы и научим ими пользоватся.",
-            content = "Какой крутой контент",
-            thumb = R.drawable.avatar_3,
-            category = "Биржа",
-            favourite = false
-        ),
-        Education(
             id = 22,
             title = "Причины инфляции",
             level = 2,

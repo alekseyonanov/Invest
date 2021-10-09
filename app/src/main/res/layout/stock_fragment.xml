@@ -88,7 +88,7 @@
             android:clipToPadding="false"
             android:overScrollMode="never"
             android:paddingTop="8dp"
-            android:paddingBottom="16dp"
+            android:paddingBottom="84dp"
             tools:listitem="@layout/stock_item" />
 
 
