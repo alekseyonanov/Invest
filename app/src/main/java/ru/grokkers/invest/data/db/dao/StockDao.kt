@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 import ru.grokkers.invest.data.model.Stock
 
 /**
@@ -15,7 +16,7 @@ import ru.grokkers.invest.data.model.Stock
 interface StockDao {
 
     @Query("SELECT * FROM stock")
-    suspend fun items(): List<Stock>
+    fun items(): Flow<List<Stock>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(list: List<Stock>)
