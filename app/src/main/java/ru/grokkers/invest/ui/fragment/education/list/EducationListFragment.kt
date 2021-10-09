@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import ru.grokkers.invest.data.model.EASY
 import ru.grokkers.invest.data.model.Education
+import ru.grokkers.invest.data.model.HARD
+import ru.grokkers.invest.data.model.MEDIUM
 import ru.grokkers.invest.databinding.FragmentEducationListBinding
 import ru.grokkers.invest.ui.base.BaseFragment
 import ru.grokkers.invest.ui.fragment.education.list.adapter.EducationListAdapter
@@ -26,8 +29,16 @@ class EducationListFragment : BaseFragment() {
             onItemClicked = viewModel::onItemClicked
         }
     }
-    private val mediumAdapter = EducationListAdapter()
-    private val hardAdapter = EducationListAdapter()
+    private val mediumAdapter by lazy {
+        EducationListAdapter().apply {
+            onItemClicked = viewModel::onItemClicked
+        }
+    }
+    private val hardAdapter by lazy {
+        EducationListAdapter().apply {
+            onItemClicked = viewModel::onItemClicked
+        }
+    }
 
     private val viewModel by viewModels<EducationListViewModel>()
 
@@ -74,9 +85,9 @@ class EducationListFragment : BaseFragment() {
     }
 
     private fun handleItems(items: List<Education>) {
-        easyAdapter.submitList(items)
-        mediumAdapter.submitList(items)
-        hardAdapter.submitList(items)
+        easyAdapter.submitList(items.filter { it.level == EASY })
+        mediumAdapter.submitList(items.filter { it.level == MEDIUM })
+        hardAdapter.submitList(items.filter { it.level == HARD })
     }
 
 }
