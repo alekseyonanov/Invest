@@ -113,12 +113,46 @@ enum class Events(val model: EventModel) {
     ),
 
     /*// Student
-    HOMEWORK, TRANSPORT, TECHNIQUE, EXAM,
+    HOMEWORK, TRANSPORT, TECHNIQUE, EXAM,*/
 
 
     // Worker
-    HOME, INTERNET, TELEPHONE, CLOTHES, TAXES, ILL, FRIENDS,
+    HOME(
+        EventModel(
+            title = "Квартира",
+            description = "Пришло время платить за квартиру. Заплатите 1000Р",
+            value = 1000
+        )
+    ),
+    INTERNET(
+        EventModel(
+            title = "Интернет",
+            description = "Конец месяца. У вас неоплаченный интернет. Заплатите 1000Р",
+            value = 1000
+        )
+    ),
+    TELEPHONE(
+        EventModel(
+            title = "Техника",
+            description = "Вы уронили телефон и разбили экран. Заплатите 10000Р за починку",
+            value = 10000
+        )
+    ),
+    CLOTHES(
+        EventModel(
+            title = "Одежда",
+            description = "Вашу старую рубашку порвал кот. Вам пришлось купить новую за 2000Р",
+            value = 2000
+        )
+    ),
+    FRIENDS(
+        EventModel(
+            title = "Друзья",
+            description = "Друзья позвали вас в бар. Вы потратили 1500Р",
+            value = 1500
+        )
+    ),
 
-    // Pensioner
+    /*// Pensioner
     HELP, MEDICAL, GOVERNMENT, FAMILY, COMPENSATION*/
 }

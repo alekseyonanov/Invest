@@ -1,6 +1,7 @@
 package ru.grokkers.invest.core
 
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ru.grokkers.invest.core.model.Events
@@ -19,25 +20,26 @@ class UserEvent constructor(
 
     private var lastClickes = 0L
 
+    private var userModel: User? = null
+
     override fun init() {
         GlobalScope.launch {
             userRepository.user().collect { user ->
                 user?.let {
-                    when (user.userType) {
-                        UserType.STUDENT -> processStudent(it)
-                        UserType.WORKER -> processWorkUser(it)
-                        UserType.PENSIONER -> processPensioner(it)
-                    }
+                    userModel = it
+                    processWorkUser(it)
+                    processTicket(it)
                     if (user.userType != UserType.PENSIONER) {
                         processTicket(it)
                     }
                 }
             }
         }
+        launchUserEvents()
     }
 
     private suspend fun processTicket(user: User) {
-        val isEvent = Random.nextInt(0, 70) == 1
+        val isEvent = Random.nextInt(0, 120) == 1
         if (user.clickes > lastClickes && isEvent) {
             eventListener.invoke(Events.TICKET)
             user.money -= 1000
@@ -46,19 +48,23 @@ class UserEvent constructor(
     }
 
     private suspend fun processWorkUser(user: User) {
-        val isEvent = Random.nextInt(0, 40) == 1
+        val isEvent = Random.nextInt(0, 70) == 1
 
         if (isEvent) {
-            if (user.clickes < 1000) {
-                eventListener.invoke(Events.OVERWORK)
-                user.money -= 1000
-            } else if (user.clickes < 5000) {
-                eventListener.invoke(Events.TO_MUCH_WORK)
-                user.money -= 2000
-            } else {
-                eventListener.invoke(Events.PLS_STOP_WORK)
-                user.money -= 5000
-                user.clickes -= 1000
+            when {
+                user.clickes < 1000 -> {
+                    eventListener.invoke(Events.OVERWORK)
+                    user.money -= 1000
+                }
+                user.clickes < 5000 -> {
+                    eventListener.invoke(Events.TO_MUCH_WORK)
+                    user.money -= 2000
+                }
+                else -> {
+                    eventListener.invoke(Events.PLS_STOP_WORK)
+                    user.money -= 5000
+                    user.clickes -= 1000
+                }
             }
 
 
@@ -68,50 +74,97 @@ class UserEvent constructor(
         }
     }
 
-    private suspend fun processStudent(user: User) {
-        val isEvent = Random.nextInt(0, 40) == 1
-        if (isEvent) {
-            if (user.clickes < 100) {
-                eventListener.invoke(Events.HOMEWORK)
-                user.money -= Events.HOMEWORK.model.value
-            } else if (user.clickes < 200) {
-                eventListener.invoke(Events.TRANSPORT)
-                user.productivity = 1
-            } else if (user.clickes < 500) {
-                eventListener.invoke(Events.EXAM)
-                user.productivity = 1
-            } else {
-                eventListener.invoke(Events.TECHNIQUE)
-                user.money -= Events.TRANSPORT.model.value
-                user.clickes -= 100
+
+    private fun launchUserEvents() {
+        GlobalScope.launch {
+            while (true) {
+                delay(1000)
+                when (userModel?.userType) {
+                    UserType.STUDENT -> studentEvents()
+                    UserType.WORKER -> workersEvents()
+                    UserType.PENSIONER -> pensionerEvents()
+                    null -> continue
+                }
             }
-
-
-            if (user.money < 0) user.money = 0
-            userRepository.update(user)
-            lastClickes = user.clickes
         }
     }
 
-    private suspend fun processPensioner(user: User) {
-        val isEvent = Random.nextInt(0, 40) == 1
-        if (isEvent) {
-            if (user.clickes < 100) {
-                eventListener.invoke(Events.HELP)
-                user.money -= Events.HELP.model.value
-            } else if (user.clickes < 200) {
-                eventListener.invoke(Events.MEDICAL)
-                user.money -= Events.MEDICAL.model.value
-            } else {
-                eventListener.invoke(Events.GOVERNMENT)
-                user.money -= Events.GOVERNMENT.model.value
+    private suspend fun workersEvents() {
+        userModel?.let {
+            val event = when {
+                Random.nextInt(1, 50) == 25 -> {
+                    if (Random.nextBoolean()) Events.HOME else Events.INTERNET
+                }
+                Random.nextInt(1, 200) == 100 -> {
+                    Events.TELEPHONE
+                }
+                Random.nextInt(1, 100) == 50 -> {
+                    if (Random.nextBoolean()) Events.CLOTHES else Events.FRIENDS
+                }
+                else -> null
+            }
+
+            if (event != null) {
+                eventListener.invoke(event)
+                it.money -= event.model.value
+                if (it.money < 0) it.money = 0
+                userRepository.update(it)
+            }
+        }
+    }
+
+    private suspend fun studentEvents() {
+        userModel?.let {
+            when {
+                Random.nextInt(1, 150) == 25 -> {
+                    eventListener.invoke(Events.HOMEWORK)
+                    it.money -= Events.HOMEWORK.model.value
+                }
+                Random.nextInt(1, 200) == 50 -> {
+                    eventListener.invoke(Events.TRANSPORT)
+                    it.productivity = 1
+                }
+                Random.nextInt(1, 300) == 100 -> {
+                    eventListener.invoke(Events.EXAM)
+                    it.productivity = 1
+                }
+                Random.nextInt(1, 400) == 50 -> {
+                    eventListener.invoke(Events.TECHNIQUE)
+                    it.money -= Events.TRANSPORT.model.value
+                    it.clickes -= 100
+                }
             }
 
 
-            if (user.money < 0) user.money = 0
-            userRepository.update(user)
-            lastClickes = user.clickes
+            if (it.money < 0) it.money = 0
+            userRepository.update(it)
+            lastClickes = it.clickes
         }
+    }
+
+    private suspend fun pensionerEvents() {
+        userModel?.let {
+            when {
+                Random.nextInt(1, 50) == 25 -> {
+                    eventListener.invoke(Events.HELP)
+                    it.money -= Events.HELP.model.value
+                }
+                Random.nextInt(1, 200) == 100 -> {
+                    eventListener.invoke(Events.MEDICAL)
+                    it.money -= Events.MEDICAL.model.value
+                }
+                Random.nextInt(1, 100) == 50 -> {
+                    eventListener.invoke(Events.GOVERNMENT)
+                    it.money -= Events.GOVERNMENT.model.value
+                }
+            }
+
+
+            if (it.money < 0) it.money = 0
+            userRepository.update(it)
+            lastClickes = it.clickes
+        }
+
     }
 
 }
