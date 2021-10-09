@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ru.grokkers.invest.data.model.User
+import ru.grokkers.invest.navigation.Navigator
 import ru.grokkers.invest.ui.base.BaseViewModel
 import ru.grokkers.invest.ui.fragment.profile.interactor.ProfileInteractor
 import javax.inject.Inject
@@ -18,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     application: Application,
-    private val interactor: ProfileInteractor
+    private val interactor: ProfileInteractor,
+    private val navigator: Navigator,
 ) : BaseViewModel(application) {
 
     private val _userState = MutableSharedFlow<User?>()
@@ -37,5 +39,9 @@ class ProfileViewModel @Inject constructor(
             user = it
             emit(_userState, it)
         }
+    }
+
+    fun onWalletClicked(){
+        navigator.navigateToPurse()
     }
 }

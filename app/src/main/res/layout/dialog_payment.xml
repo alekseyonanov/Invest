@@ -51,18 +51,21 @@
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/product" />
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/apply"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/payment_button_background"
-        android:text="Купить"
+        android:backgroundTint="@color/blue60"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="10dp"
+        android:text="Кошелек"
         android:textAppearance="?textAppearanceButton"
         android:textColor="@color/white"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

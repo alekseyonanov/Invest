@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fillViewport="true"
     android:clipToPadding="false"
-    android:paddingBottom="96dp"
+    android:fillViewport="true"
     android:paddingTop="@dimen/grid_0_25"
+    android:paddingBottom="96dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     app:paddingBottomSystemWindowInsets="true"
     app:paddingTopSystemWindowInsets="true">
@@ -16,425 +15,452 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.card.MaterialCardView
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plane_16"
+            android:layout_marginTop="8dp"
+            android:text="Профиль"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/data_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue20"
+            android:background="@color/white"
+            android:padding="@dimen/plane_16"
+            android:layout_marginTop="@dimen/plane_08"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/title">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/photo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginVertical="@dimen/plane_08"
+                android:src="@drawable/avatar_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.225" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Иванов Иван Иванович"
+                android:textAppearance="?textAppearanceBody1"
+                android:textColor="@color/blue100"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/education"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/photo"
+                app:layout_constraintTop_toTopOf="@id/photo" />
+
+            <TextView
+                android:id="@+id/education"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="Студент"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/photo"
+                app:layout_constraintTop_toBottomOf="@id/name" />
+
+            <TextView
+                android:id="@+id/vuz_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Учебное заведение"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/photo" />
+
+            <TextView
+                android:id="@+id/vuz"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="СПБГУ"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/vuz_hint" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/photo"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/student_logo"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/type"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="20dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/photo"
-                    app:layout_constraintTop_toTopOf="@id/photo"
-                    tools:text="Студент" />
-
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue100"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/photo"
-                    app:layout_constraintTop_toBottomOf="@id/type"
-                    tools:text="Иванов Иван Иванович" />
-
-                <TextView
-                    android:id="@+id/education"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textSize="13sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/photo"
-                    app:layout_constraintTop_toBottomOf="@id/name"
-                    tools:text="Санкт-Петербуржский Государственный Университет" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/blue50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/data_card" />
-
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/money_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue20"
+            android:layout_marginTop="@dimen/plane_16"
+            android:background="@color/white"
+            android:padding="@dimen/plane_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider1">
+            app:layout_constraintTop_toBottomOf="@id/data_card">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/finance_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Финансы"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/salary_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Дневная зарплата"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/finance_title" />
+
+            <TextView
+                android:id="@+id/salary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1000Р"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/salary_title" />
 
-                <ImageView
-                    android:id="@+id/money_icon"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_finance_outline"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/salary" />
 
-                <TextView
-                    android:id="@+id/salary_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Дневная зарплата:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/money_icon"
-                    app:layout_constraintTop_toTopOf="@id/money_icon" />
+            <TextView
+                android:id="@+id/money_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Количество свободных денег"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1" />
 
-                <TextView
-                    android:id="@+id/salary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/salary_title"
-                    app:layout_constraintTop_toTopOf="@id/money_icon"
-                    tools:text="1000Р" />
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1000Р"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/money_title" />
 
-                <TextView
-                    android:id="@+id/money_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Количество свободных денег:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/money_icon"
-                    app:layout_constraintTop_toBottomOf="@id/salary_title" />
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/money" />
 
-                <TextView
-                    android:id="@+id/money"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/money_title"
-                    app:layout_constraintTop_toBottomOf="@id/salary_title"
-                    tools:text="1000Р" />
+            <TextView
+                android:id="@+id/invest_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Денег в инвестициях"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2" />
 
-                <TextView
-                    android:id="@+id/invest_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Денег в инвестициях:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/money_icon"
-                    app:layout_constraintTop_toBottomOf="@id/money_title" />
+            <TextView
+                android:id="@+id/invest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1000Р"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/invest_title" />
 
-                <TextView
-                    android:id="@+id/invest"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/invest_title"
-                    app:layout_constraintTop_toBottomOf="@id/money_title"
-                    tools:text="1000Р" />
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/invest" />
 
-                <TextView
-                    android:id="@+id/deposit_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Денег во вкладах:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/money_icon"
-                    app:layout_constraintTop_toBottomOf="@id/invest_title" />
+            <TextView
+                android:id="@+id/deposit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Денег во вкладах"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider3" />
 
-                <TextView
-                    android:id="@+id/deposit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/deposit_title"
-                    app:layout_constraintTop_toBottomOf="@id/invest_title"
-                    tools:text="1000Р" />
+            <TextView
+                android:id="@+id/deposit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1000Р"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/deposit_title" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/wallet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:paddingHorizontal="50dp"
-                    android:paddingVertical="10dp"
-                    android:text="Кошелек"
-                    android:textSize="20sp"
-                    android:backgroundTint="@color/blue50"
-                    app:cornerRadius="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/money_icon" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:backgroundTint="@color/blue50"
+                android:paddingHorizontal="50dp"
+                android:paddingVertical="10dp"
+                android:text="Кошелек"
+                android:textAppearance="?textAppearanceButton"
+                android:textColor="@color/white"
+                app:cornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deposit" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/blue50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/money_card" />
-
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/credit_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue20"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider2">
+            app:layout_constraintTop_toBottomOf="@id/money_card">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/credit_title_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Кредиты"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/credit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Активных кредитов на"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/credit_title_top" />
+
+            <TextView
+                android:id="@+id/credit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1000Р"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/credit_title" />
 
-                <ImageView
-                    android:id="@+id/credit_icon"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_credit_card_outline"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/divider10"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/credit" />
 
-                <TextView
-                    android:id="@+id/credit_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Активных кредитов на:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/credit_icon"
-                    app:layout_constraintTop_toTopOf="@id/credit_icon" />
+            <TextView
+                android:id="@+id/month_credit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Ежемесячный платёж"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider10" />
 
-                <TextView
-                    android:id="@+id/credit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="20dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/credit_title"
-                    app:layout_constraintTop_toTopOf="@id/credit_icon"
-                    tools:text="1000Р" />
+            <TextView
+                android:id="@+id/month_credit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1000Р"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/month_credit_title" />
 
-                <TextView
-                    android:id="@+id/month_credit_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Ежемесячный платёж:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/credit_icon"
-                    app:layout_constraintTop_toBottomOf="@id/credit_title" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/month_credit" />
 
-                <TextView
-                    android:id="@+id/month_credit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/blue90"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/month_credit_title"
-                    app:layout_constraintTop_toBottomOf="@id/credit_title"
-                    tools:text="1000Р" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/blue50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/credit_card" />
-
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/detail_data_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue20"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider3">
+            app:layout_constraintTop_toBottomOf="@id/credit_card">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/lichnoe_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Личные данные"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/age_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Возраст"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lichnoe_title" />
+
+            <TextView
+                android:id="@+id/age"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="22"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/age_title" />
 
-                <ImageView
-                    android:id="@+id/data_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_docs_outline"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/divider20"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/age" />
 
-                <TextView
-                    android:id="@+id/data_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Личные данные:"
-                    android:textColor="@color/blue100"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/data_image"
-                    app:layout_constraintTop_toTopOf="@id/data_image" />
+            <TextView
+                android:id="@+id/city_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Город проживания"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider20" />
 
-                <TextView
-                    android:id="@+id/age_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Возраст:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/data_image"
-                    app:layout_constraintTop_toBottomOf="@id/data_title" />
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="СПБ"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/city_title" />
 
-                <TextView
-                    android:id="@+id/age"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/age_title"
-                    app:layout_constraintTop_toBottomOf="@id/data_title"
-                    tools:text="20" />
+            <View
+                android:id="@+id/divider21"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/city" />
 
-                <TextView
-                    android:id="@+id/city_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Город проживания:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/data_image"
-                    app:layout_constraintTop_toBottomOf="@id/age_title" />
+            <TextView
+                android:id="@+id/work_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Направление работы"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider21" />
 
-                <TextView
-                    android:id="@+id/city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/city_title"
-                    app:layout_constraintTop_toBottomOf="@id/age_title"
-                    tools:text="20" />
+            <TextView
+                android:id="@+id/work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="IT всемогущий"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/work_title" />
 
-                <TextView
-                    android:id="@+id/work_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Сфера работы:"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/data_image"
-                    app:layout_constraintTop_toBottomOf="@id/city_title" />
-
-                <TextView
-                    android:id="@+id/work"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:textColor="@color/blue100"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/work_title"
-                    app:layout_constraintTop_toBottomOf="@id/city_title"
-                    tools:text="IT" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/blue50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_data_card" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/share"
             android:layout_width="50dp"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:layout_height="50dp"
             android:layout_margin="16dp"
             android:src="@drawable/ic_share"
             app:layout_constraintEnd_toStartOf="@id/vtb_invest"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider4" />
+            app:layout_constraintTop_toBottomOf="@id/detail_data_card" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/vtb_invest"
@@ -444,7 +470,7 @@
             android:src="@drawable/vtb_invest_logo"
             app:layout_constraintEnd_toStartOf="@id/vtb_cabinet"
             app:layout_constraintStart_toEndOf="@id/share"
-            app:layout_constraintTop_toBottomOf="@id/divider4" />
+            app:layout_constraintTop_toBottomOf="@id/detail_data_card" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/vtb_cabinet"
@@ -454,7 +480,7 @@
             android:src="@drawable/vtb_cabinet_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/vtb_invest"
-            app:layout_constraintTop_toBottomOf="@id/divider4" />
+            app:layout_constraintTop_toBottomOf="@id/detail_data_card" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
