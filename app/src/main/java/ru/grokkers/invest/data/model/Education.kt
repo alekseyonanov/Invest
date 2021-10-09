@@ -18,6 +18,8 @@ data class Education(
     @DrawableRes val thumb: Int,
     val category: String,
     val favourite: Boolean,
+    var isLocked: Boolean = true,
+    val price: Int = 1000,
 ) : Parcelable
 
 const val EASY = 0
@@ -26,7 +28,7 @@ const val HARD = 2
 
 
 object EducationDiffCallback : DiffUtil.ItemCallback<Education>() {
-    override fun areItemsTheSame(oldItem: Education, newItem: Education) = oldItem.id == newItem.id
+    override fun areItemsTheSame(oldItem: Education, newItem: Education) = oldItem == newItem
     override fun areContentsTheSame(oldItem: Education, newItem: Education) = oldItem == newItem
 }
 

@@ -31,6 +31,7 @@
         <item name="textAppearanceButton">@style/TextAppearance.Reply.Button</item>
         <item name="textAppearanceCaption">@style/TextAppearance.Reply.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.Reply.Overline</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
 
     <style name="circle">

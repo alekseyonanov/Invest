@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/plane_16"
             android:layout_marginTop="@dimen/plane_16"
-            android:text="Необходимый старт"
+            android:text="Вклады"
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/plane_16"
             android:layout_marginTop="@dimen/plane_16"
-            android:text="Уверенно"
+            android:text="Биржа"
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/easy_recycler_view" />
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/plane_16"
             android:layout_marginTop="@dimen/plane_16"
-            android:text="Супер сложно"
+            android:text="Кредитование"
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/medium_recycler_view" />

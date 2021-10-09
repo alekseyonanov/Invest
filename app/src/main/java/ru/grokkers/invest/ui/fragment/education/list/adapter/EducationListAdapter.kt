@@ -13,6 +13,7 @@ import ru.grokkers.invest.databinding.ItemEducationBinding
 class EducationListAdapter : ListAdapter<Education, EducationViewHolder>(EducationDiffCallback) {
 
     var onItemClicked: ((Education) -> Unit)? = null
+    var onLockedClicked: ((Education) -> Boolean)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EducationViewHolder {
         return EducationViewHolder(
@@ -21,7 +22,8 @@ class EducationListAdapter : ListAdapter<Education, EducationViewHolder>(Educati
                 parent,
                 false
             ),
-            onItemClicked
+            onItemClicked,
+            onLockedClicked
         )
     }
 

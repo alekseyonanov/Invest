@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import ru.grokkers.invest.data.model.EASY
+import kotlinx.coroutines.handleCoroutineException
 import ru.grokkers.invest.data.model.Education
 import ru.grokkers.invest.data.model.HARD
 import ru.grokkers.invest.data.model.MEDIUM
 import ru.grokkers.invest.databinding.FragmentEducationListBinding
 import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
+import ru.grokkers.invest.ui.dialog.PaymentDialog
 import ru.grokkers.invest.ui.fragment.education.list.adapter.EducationListAdapter
 import ru.grokkers.invest.ui.state.EducationState
 
@@ -25,19 +26,22 @@ class EducationListFragment : BaseFragment() {
     private var _binding: FragmentEducationListBinding? = null
     private val binding: FragmentEducationListBinding get() = _binding!!
 
-    private val easyAdapter by lazy {
+    private val depositionAdapter by lazy {
         EducationListAdapter().apply {
             onItemClicked = viewModel::onItemClicked
+            onLockedClicked = viewModel::onLockedClicked
         }
     }
-    private val mediumAdapter by lazy {
+    private val stockAdapter by lazy {
         EducationListAdapter().apply {
             onItemClicked = viewModel::onItemClicked
+            onLockedClicked = viewModel::onLockedClicked
         }
     }
-    private val hardAdapter by lazy {
+    private val creditAdapter by lazy {
         EducationListAdapter().apply {
             onItemClicked = viewModel::onItemClicked
+            onLockedClicked = viewModel::onLockedClicked
         }
     }
 
@@ -54,21 +58,22 @@ class EducationListFragment : BaseFragment() {
 
         binding.easyRecyclerView.apply {
             isNestedScrollingEnabled = false
-            adapter = easyAdapter
+            adapter = depositionAdapter
         }
 
         binding.mediumRecyclerView.apply {
             isNestedScrollingEnabled = false
-            adapter = mediumAdapter
+            adapter = stockAdapter
         }
 
         binding.hardRecyclerView.apply {
             isNestedScrollingEnabled = false
-            adapter = hardAdapter
+            adapter = creditAdapter
         }
 
         viewModel.apply {
             handleFlow(uiState, ::handleState)
+            handleFlow(payment, ::handlePayment)
             start()
         }
 
@@ -87,10 +92,16 @@ class EducationListFragment : BaseFragment() {
         }
     }
 
+    private fun handlePayment(education: Education) {
+        PaymentDialog.show(education.title, education.price, childFragmentManager) {
+            viewModel.onPaymentSuccess(education)
+        }
+    }
+
     private fun handleItems(items: List<Education>) {
-        easyAdapter.submitList(items.filter { it.level == EASY })
-        mediumAdapter.submitList(items.filter { it.level == MEDIUM })
-        hardAdapter.submitList(items.filter { it.level == HARD })
+        depositionAdapter.submitList(items.filter { it.category == "Вклад" })
+        stockAdapter.submitList(items.filter { it.category == "Биржа" })
+        creditAdapter.submitList(items.filter { it.category == "Кредитование" })
     }
 
 }

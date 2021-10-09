@@ -14,13 +14,13 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/email_card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:cardCornerRadius="@dimen/grid_0_5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/menu_item_constraint_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:paddingHorizontal="@dimen/grid_2"
             android:paddingTop="@dimen/grid_3"
             android:paddingBottom="@dimen/bottom_app_bar_height"
@@ -92,15 +92,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sender_profile_image_view" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/attachment_recycler_view"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/grid_3"
-                android:overScrollMode="never"
+                android:text="Попробовать"
+                android:textAppearance="?textAppearanceHeadline6"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/body_text_view" />
+                app:layout_constraintStart_toStartOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

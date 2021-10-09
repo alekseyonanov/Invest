@@ -26,8 +26,12 @@ class EducationDetailViewModel @Inject constructor(
 
     }
 
-    fun onBackClicked(){
+    fun onBackClicked() {
         navigator.navigateBack()
+    }
+
+    fun onFabClicked() {
+        navigator.navigateToStore()
     }
 
 }

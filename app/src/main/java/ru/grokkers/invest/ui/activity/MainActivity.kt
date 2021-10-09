@@ -2,7 +2,6 @@ package ru.grokkers.invest.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -87,6 +86,12 @@ class MainActivity : AppCompatActivity() {
 
     fun setFabIcon(@DrawableRes iconRes: Int) {
         binding.fab.setImageResource(iconRes)
+    }
+
+    fun setFabAction(listener: (() -> Unit)? = null) {
+        binding.fab.setOnClickListener {
+            listener?.invoke()
+        }
     }
 
 }
