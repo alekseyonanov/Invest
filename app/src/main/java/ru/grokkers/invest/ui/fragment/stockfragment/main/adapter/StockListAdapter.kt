@@ -1,4 +1,4 @@
-package ru.grokkers.invest.ui.fragment.storefragment.adapter
+package ru.grokkers.invest.ui.fragment.stockfragment.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -14,12 +14,17 @@ import ru.grokkers.invest.data.model.Stock
  */
 @Dao
 interface StockDao {
+    @Query("SELECT count(1) WHERE NOT EXISTS (SELECT * FROM stock)")
+    fun isNotEmpty():Boolean
 
     @Query("SELECT * FROM stock")
     fun items(): Flow<List<Stock>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(list: List<Stock>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun add(model: Stock)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(model: Stock)

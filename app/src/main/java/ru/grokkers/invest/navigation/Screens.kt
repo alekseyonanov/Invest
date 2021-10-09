@@ -7,7 +7,7 @@ import ru.grokkers.invest.ui.fragment.education.list.EducationListFragment
 import ru.grokkers.invest.ui.fragment.greetingfragment.GreetingFragment
 import ru.grokkers.invest.ui.fragment.profile.ProfileFragment
 import ru.grokkers.invest.ui.fragment.purse.PurseFragment
-import ru.grokkers.invest.ui.fragment.storefragment.StockFragment
+import ru.grokkers.invest.ui.fragment.stockfragment.main.StockFragment
 import ru.grokkers.invest.ui.fragment.work.WorkFragment
 
 /**

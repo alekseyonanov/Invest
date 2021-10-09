@@ -10,12 +10,14 @@ interface StockRepository {
 
     fun getAllStock(): Flow<List<Stock>>
 
-    fun add(model: Stock)
+    fun getMoney(): Flow<Int>
 
-    fun add(list: List<Stock>)
+    suspend fun add(model: Stock)
 
-    fun update(model: Stock)
+    suspend fun add(list: List<Stock>)
 
-    fun clear()
+    suspend fun update(model: Stock)
+
+    suspend fun clear()
 
 }
