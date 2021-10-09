@@ -2,9 +2,8 @@ package ru.grokkers.invest.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.github.terrakok.cicerone.NavigatorHolder
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.R
@@ -38,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         navigator.navigateToGreeting()
 
         binding.navigation.setOnItemSelectedListener(::handleNavigationItemClick)
+        binding.fab.setOnClickListener {
+            navigator.navigateToGreeting()
+        }
     }
 
     override fun onResumeFragments() {
@@ -57,13 +59,23 @@ class MainActivity : AppCompatActivity() {
             R.id.store -> navigator.navigateToStore()
             R.id.education -> navigator.navigateToEducationList()
             R.id.profile -> navigator.navigateToEducationList()
+            else -> return false
         }
         return true
 
     }
 
     fun setNavigationVisibility(isVisible: Boolean) {
-        binding.navigation.isVisible = isVisible
+        if (isVisible) {
+            binding.bottomAppBar.performShow()
+        } else {
+            binding.bottomAppBar.performHide()
+        }
+        //binding.navigation.isVisible = isVisible
+    }
+
+    fun setFabIcon(@DrawableRes iconRes: Int) {
+        binding.fab.setImageResource(iconRes)
     }
 
 }

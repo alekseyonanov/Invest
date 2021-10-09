@@ -11,6 +11,10 @@
         android:title="Рынок" />
 
     <item
+        android:id="@+id/placeholder"
+        android:title="" />
+
+    <item
         android:id="@+id/education"
         android:icon="@drawable/ic_education"
         android:title="Обучение" />
