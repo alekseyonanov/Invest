@@ -18,4 +18,7 @@
     <color name="blue80">#7EABF0</color> <!--colorPrimaryVariant-->
     <color name="blue900">#A0C0EF</color>
     <color name="blue100">#C2D4EF </color> <!--black && colorOnSecondary-->
+
+    <color name="reply_blue_50">#eef0f2</color>
+    <color name="reply_black_900">#000000</color>
 </resources>

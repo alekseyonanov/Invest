@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Invest</string>
+    <string name="app_name">Инвестируй!</string>
 
     <string-array name="greeting_messages">
         <item>Привет, я Боб, мне тут сказали, что ты хочешь стать финансово независимым!

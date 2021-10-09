@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.data.model.Education
 import ru.grokkers.invest.databinding.FragmentEducationDetailBinding
+import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
 
 /**
@@ -31,6 +32,8 @@ class EducationDetailFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEducationDetailBinding.inflate(inflater, container, false)
+
+        (activity as MainActivity).setNavigationVisibility(false)
 
         boundContent()
 

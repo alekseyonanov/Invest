@@ -19,4 +19,7 @@
     <color name="blue90">#14315C</color>
     <color name="blue100">#0B1D37</color> <!--black && colorOnSecondary-->
 
+    <color name="reply_blue_50">#eef0f2</color>
+    <color name="reply_black_900">#000000</color>
+
 </resources>

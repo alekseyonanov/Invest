@@ -11,6 +11,7 @@ import ru.grokkers.invest.data.model.Education
 import ru.grokkers.invest.data.model.HARD
 import ru.grokkers.invest.data.model.MEDIUM
 import ru.grokkers.invest.databinding.FragmentEducationListBinding
+import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
 import ru.grokkers.invest.ui.fragment.education.list.adapter.EducationListAdapter
 import ru.grokkers.invest.ui.state.EducationState
@@ -48,6 +49,8 @@ class EducationListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEducationListBinding.inflate(inflater, container, false)
+
+        (activity as MainActivity).setNavigationVisibility(true)
 
         binding.easyRecyclerView.apply {
             isNestedScrollingEnabled = false
