@@ -5,7 +5,7 @@ import ru.grokkers.invest.data.model.Education
 import ru.grokkers.invest.ui.fragment.education.detail.EducationDetailFragment
 import ru.grokkers.invest.ui.fragment.education.list.EducationListFragment
 import ru.grokkers.invest.ui.fragment.greetingfragment.GreetingFragment
-import ru.grokkers.invest.ui.fragment.storefragment.StoreFragment
+import ru.grokkers.invest.ui.fragment.storefragment.StockFragment
 import ru.grokkers.invest.ui.fragment.work.WorkFragment
 
 /**
@@ -21,7 +21,7 @@ object Screens {
     fun educationDetails(education: Education) = FragmentScreen { EducationDetailFragment.newInstance(education) }
 
     val Store: FragmentScreen
-        get() = FragmentScreen { StoreFragment() }
+        get() = FragmentScreen{ StockFragment()}
 
     val Work: FragmentScreen
         get() = FragmentScreen { WorkFragment() }

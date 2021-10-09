@@ -4,34 +4,43 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.R
-import ru.grokkers.invest.databinding.StoreFragmentBinding
+import ru.grokkers.invest.databinding.StockFragmentBinding
 import ru.grokkers.invest.ui.base.BaseFragment
+import ru.grokkers.invest.ui.fragment.storefragment.adapter.StockListAdapter
 
 /**
  * @author Vyacheslav Doroshenko
  */
 @AndroidEntryPoint
-class StoreFragment : BaseFragment() {
+class StockFragment : BaseFragment() {
 
-    private var _binding: StoreFragmentBinding? = null
-    private val binding: StoreFragmentBinding by lazy { _binding!! }
+    private var _binding: StockFragmentBinding? = null
+    private val binding: StockFragmentBinding by lazy { _binding!! }
 
-    private val viewModel by viewModels<StoreViewModel>()
+    private val viewModel by viewModels<StockViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-        _binding = StoreFragmentBinding.inflate(inflater, container, false);
+        _binding = StockFragmentBinding.inflate(inflater, container, false);
         binding.appbar.addOnOffsetChangedListener(offsetChangedListener)
+        StockListAdapter().also { stockAdapter ->
+            stockAdapter.onStockClick = viewModel::stockClick
+            binding.recycler.apply {
+                adapter = stockAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
+            handleFlow(viewModel.stockFlow, stockAdapter::submitList)
+        }
 
         val desiredBarHeight = binding.motionLayout.minHeight
         ViewCompat.setOnApplyWindowInsetsListener(binding.motionLayout) { _, insets ->
@@ -55,7 +64,6 @@ class StoreFragment : BaseFragment() {
             (-verticalOffset / appBarLayout.totalScrollRange.toFloat()).let { position ->
                 binding.motionLayout.progress = position
             }
-
         }
 
     override fun onDestroyView() {
