@@ -92,6 +92,9 @@
                 app:layout_constraintTop_toBottomOf="@id/sender_profile_image_view" />
 
             <TextView
+                app:layout_constraintTop_toBottomOf="@id/body_text_view"
+                app:layout_constraintVertical_bias="1"
+                android:layout_marginTop="@dimen/plane_16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Попробовать"

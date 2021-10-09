@@ -5,6 +5,8 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
@@ -72,7 +74,7 @@ class EducationDetailFragment : BaseFragment() {
             binding.subjectTextView.text = title
             binding.category.text = category
             binding.senderProfileImageView.setImageResource(thumb)
-            binding.bodyTextView.text = content
+            binding.bodyTextView.text = HtmlCompat.fromHtml(content,FROM_HTML_MODE_LEGACY)
         }
     }
 
