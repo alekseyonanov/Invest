@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION*/
 
-        navigator.navigateToGreeting()
+        navigator.navigateToProfile()
 
         binding.navigation.setOnItemSelectedListener(::handleNavigationItemClick)
         binding.fab.setOnClickListener {
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             R.id.job -> navigator.navigateToWork()
             R.id.store -> navigator.navigateToStore()
             R.id.education -> navigator.navigateToEducationList()
-            R.id.profile -> navigator.navigateToEducationList()
+            R.id.profile -> navigator.navigateToProfile()
             else -> return false
         }
         return true

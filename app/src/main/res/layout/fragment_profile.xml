@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:paddingBottomSystemWindowInsets="true"
+    android:fillViewport="true"
+    app:paddingTopSystemWindowInsets="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/data_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/photo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/student_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/photo"
+                    app:layout_constraintTop_toTopOf="@id/photo"
+                    tools:text="Студент" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue100"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/photo"
+                    app:layout_constraintTop_toBottomOf="@id/type"
+                    tools:text="Иванов Иван Иванович" />
+
+                <TextView
+                    android:id="@+id/education"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/photo"
+                    app:layout_constraintTop_toBottomOf="@id/name"
+                    tools:text="Санкт-Петербуржский Государственный Университет" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/blue90"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/data_card" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/money_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/money_icon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_finance_outline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/salary_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Дневная зарплата:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/money_icon"
+                    app:layout_constraintTop_toTopOf="@id/money_icon" />
+
+                <TextView
+                    android:id="@+id/salary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/salary_title"
+                    app:layout_constraintTop_toTopOf="@id/money_icon"
+                    tools:text="1000Р" />
+
+                <TextView
+                    android:id="@+id/money_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Количество свободных денег:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/money_icon"
+                    app:layout_constraintTop_toBottomOf="@id/salary_title" />
+
+                <TextView
+                    android:id="@+id/money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/money_title"
+                    app:layout_constraintTop_toBottomOf="@id/salary_title"
+                    tools:text="1000Р" />
+
+                <TextView
+                    android:id="@+id/invest_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Денег в инвестициях:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/money_icon"
+                    app:layout_constraintTop_toBottomOf="@id/money_title" />
+
+                <TextView
+                    android:id="@+id/invest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/invest_title"
+                    app:layout_constraintTop_toBottomOf="@id/money_title"
+                    tools:text="1000Р" />
+
+                <TextView
+                    android:id="@+id/deposit_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Денег во вкладах:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/money_icon"
+                    app:layout_constraintTop_toBottomOf="@id/invest_title" />
+
+                <TextView
+                    android:id="@+id/deposit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/deposit_title"
+                    app:layout_constraintTop_toBottomOf="@id/invest_title"
+                    tools:text="1000Р" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:paddingHorizontal="50dp"
+                    android:paddingVertical="10dp"
+                    android:text="Кошелек"
+                    android:textSize="20sp"
+                    app:cornerRadius="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/money_icon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/blue90"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/money_card" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/credit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/credit_icon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_credit_card_outline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/credit_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Активных кредитов на:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/credit_icon"
+                    app:layout_constraintTop_toTopOf="@id/credit_icon" />
+
+                <TextView
+                    android:id="@+id/credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/credit_title"
+                    app:layout_constraintTop_toTopOf="@id/credit_icon"
+                    tools:text="1000Р" />
+
+                <TextView
+                    android:id="@+id/month_credit_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Ежемесячный платёж:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/credit_icon"
+                    app:layout_constraintTop_toBottomOf="@id/credit_title" />
+
+                <TextView
+                    android:id="@+id/month_credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/blue90"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/month_credit_title"
+                    app:layout_constraintTop_toBottomOf="@id/credit_title"
+                    tools:text="1000Р" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/blue90"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/credit_card" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/detail_data_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/data_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_docs_outline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/data_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Личные данные:"
+                    android:textColor="@color/blue100"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/data_image"
+                    app:layout_constraintTop_toTopOf="@id/data_image" />
+
+                <TextView
+                    android:id="@+id/age_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Возраст:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/data_image"
+                    app:layout_constraintTop_toBottomOf="@id/data_title" />
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/age_title"
+                    app:layout_constraintTop_toBottomOf="@id/data_title"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/city_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Город проживания:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/data_image"
+                    app:layout_constraintTop_toBottomOf="@id/age_title" />
+
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/city_title"
+                    app:layout_constraintTop_toBottomOf="@id/age_title"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/work_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Сфера работа:"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/data_image"
+                    app:layout_constraintTop_toBottomOf="@id/city_title" />
+
+                <TextView
+                    android:id="@+id/work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/blue100"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/work_title"
+                    app:layout_constraintTop_toBottomOf="@id/city_title"
+                    tools:text="IT" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/blue90"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_data_card" />
+
+        <ImageView
+            android:id="@+id/vk"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_vk_logo"
+            app:layout_constraintEnd_toStartOf="@id/ok"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ok"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ok_logo"
+            app:layout_constraintEnd_toStartOf="@id/vtb_invest"
+            app:layout_constraintStart_toEndOf="@id/vk"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/vtb_invest"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/vtb_invest_logo"
+            app:layout_constraintEnd_toStartOf="@id/vtb_cabinet"
+            app:layout_constraintStart_toEndOf="@id/ok"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/vtb_cabinet"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/vtb_cabinet_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vtb_invest"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
