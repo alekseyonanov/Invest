@@ -1,14 +1,9 @@
 package ru.grokkers.invest.ui.fragment.greetingfragment.adapter
 
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.setMargins
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import ru.grokkers.invest.R
-import ru.grokkers.invest.databinding.FragmentGreetingBinding
 import ru.grokkers.invest.databinding.MessageItemBinding
 
 /**
@@ -16,7 +11,16 @@ import ru.grokkers.invest.databinding.MessageItemBinding
  */
 class MessagesAdapter : RecyclerView.Adapter<MessagesAdapter.MessagesViewHolder>() {
 
-    var items: List<Pair<String, Boolean>> = listOf()
+    var items: MutableList<Pair<String, Boolean>> = mutableListOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    fun addMessage(message: Pair<String, Boolean>) {
+        items.add(message)
+        notifyItemChanged(items.size - 1)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessagesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -35,17 +39,15 @@ class MessagesAdapter : RecyclerView.Adapter<MessagesAdapter.MessagesViewHolder>
 
         fun bind(data: Pair<String, Boolean>) {
             binding.apply {
-                message.text = data.first
-
-                val layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                ).apply {
-                    gravity = if (data.second) Gravity.END else Gravity.START
-                    setMargins(itemView.resources.getDimensionPixelSize(R.dimen.default_margin))
+                if (data.second) {
+                    messageIncomeCard.isVisible = false
+                    messageOutcomeCard.isVisible = true
+                    messageOutcome.text = data.first
+                } else {
+                    messageIncomeCard.isVisible = true
+                    messageOutcomeCard.isVisible = false
+                    messageIncome.text = data.first
                 }
-
-                container.layoutParams = layoutParams
             }
         }
     }

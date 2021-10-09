@@ -12,7 +12,7 @@ import ru.grokkers.invest.data.model.User
 interface UserDao {
 
     @Query("SELECT * FROM user LIMIT 1")
-    suspend fun user(): User
+    suspend fun user(): User?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(user: User)

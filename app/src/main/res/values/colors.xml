@@ -16,7 +16,7 @@
     <color name="blue60">#3a83f1</color> <!--primary-->
     <color name="blue70">#316FCC</color>
     <color name="blue80">#225094</color> <!--colorPrimaryVariant-->
-    <color name="blue900">#14315C</color>
+    <color name="blue90">#14315C</color>
     <color name="blue100">#0B1D37</color> <!--black && colorOnSecondary-->
 
 </resources>
