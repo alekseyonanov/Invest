@@ -54,6 +54,7 @@ class GreetingFragment : BaseFragment() {
         }
 
         (activity as MainActivity).setNavigationVisibility(false)
+        (activity as MainActivity).setFabVisibility(false)
 
         viewModel.apply {
             start()

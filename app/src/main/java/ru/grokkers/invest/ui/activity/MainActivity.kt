@@ -2,8 +2,10 @@ package ru.grokkers.invest.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.github.terrakok.cicerone.NavigatorHolder
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.R
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION*/
 
-        navigator.navigateToStore()
+        navigator.navigateToGreeting()
 
         binding.navigation.setOnItemSelectedListener(::handleNavigationItemClick)
         binding.fab.setOnClickListener {
@@ -66,12 +68,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setNavigationVisibility(isVisible: Boolean) {
+        binding.bottomAppBar.isVisible = true
         if (isVisible) {
             binding.bottomAppBar.performShow()
         } else {
             binding.bottomAppBar.performHide()
         }
         //binding.navigation.isVisible = isVisible
+    }
+
+    fun setFabVisibility(isVisible: Boolean) {
+        if (isVisible) {
+            binding.fab.show()
+        } else {
+            binding.fab.hide()
+        }
     }
 
     fun setFabIcon(@DrawableRes iconRes: Int) {

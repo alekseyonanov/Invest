@@ -32,6 +32,7 @@ class WorkFragment : BaseFragment() {
         _binding = FragmentWorkBinding.inflate(inflater, container, false)
 
         (activity as MainActivity).setNavigationVisibility(true)
+        (activity as MainActivity).setFabVisibility(true)
 
         binding.apply {
             work.setOnClickListener {

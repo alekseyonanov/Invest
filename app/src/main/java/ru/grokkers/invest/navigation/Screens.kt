@@ -15,14 +15,16 @@ object Screens {
     val Greeting: FragmentScreen
         get() = FragmentScreen { GreetingFragment() }
 
+    val Work: FragmentScreen
+        get() = FragmentScreen { WorkFragment() }
+
+    val Store: FragmentScreen
+        get() = FragmentScreen { StockFragment() }
+
     val EducationList: FragmentScreen
         get() = FragmentScreen { EducationListFragment() }
 
-    fun educationDetails(education: Education) = FragmentScreen { EducationDetailFragment.newInstance(education) }
+    fun educationDetails(education: Education) =
+        FragmentScreen { EducationDetailFragment.newInstance(education) }
 
-    val Store: FragmentScreen
-        get() = FragmentScreen{ StockFragment()}
-
-    val Work: FragmentScreen
-        get() = FragmentScreen { WorkFragment() }
 }
