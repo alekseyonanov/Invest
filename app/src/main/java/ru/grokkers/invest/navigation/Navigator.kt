@@ -2,6 +2,7 @@ package ru.grokkers.invest.navigation
 
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.Screen
+import ru.grokkers.invest.data.model.Education
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,8 +20,8 @@ class Navigator @Inject constructor(private val router: Router) {
         root(Screens.EducationList)
     }
 
-    fun navigateToEducationDetails() {
-        forward(Screens.EducationDetails)
+    fun navigateToEducationDetails(education: Education) {
+        forward(Screens.educationDetails(education))
     }
 
     fun navigateToStore() {
@@ -29,6 +30,10 @@ class Navigator @Inject constructor(private val router: Router) {
 
     fun navigateToWork() {
         root(Screens.Work)
+    }
+
+    fun navigateBack() {
+        router.exit()
     }
 
     private fun forward(screen: Screen) {

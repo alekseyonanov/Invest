@@ -21,7 +21,11 @@ class EducationListFragment : BaseFragment() {
     private var _binding: FragmentEducationListBinding? = null
     private val binding: FragmentEducationListBinding get() = _binding!!
 
-    private val easyAdapter = EducationListAdapter()
+    private val easyAdapter by lazy {
+        EducationListAdapter().apply {
+            onItemClicked = viewModel::onItemClicked
+        }
+    }
     private val mediumAdapter = EducationListAdapter()
     private val hardAdapter = EducationListAdapter()
 

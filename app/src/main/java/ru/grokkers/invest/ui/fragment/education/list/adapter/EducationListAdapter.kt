@@ -14,6 +14,7 @@ import ru.grokkers.invest.databinding.ItemEducationBinding
 class EducationListAdapter :
     ListAdapter<Education, EducationListAdapter.EducationViewHolder>(EducationDiffCallback) {
 
+    var onItemClicked: ((Education) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EducationViewHolder {
         return EducationViewHolder(
@@ -29,7 +30,7 @@ class EducationListAdapter :
         getItem(position).also(holder::bind)
     }
 
-    class EducationViewHolder(private val binding: ItemEducationBinding) :
+    inner class EducationViewHolder(private val binding: ItemEducationBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Education) {
@@ -38,6 +39,9 @@ class EducationListAdapter :
                 binding.subjectTextView.text = title
                 binding.bodyPreviewTextView.text = description
                 binding.senderProfileImageView.setImageResource(thumb)
+                binding.cardView.setOnClickListener {
+                    onItemClicked?.invoke(this)
+                }
             }
         }
 
