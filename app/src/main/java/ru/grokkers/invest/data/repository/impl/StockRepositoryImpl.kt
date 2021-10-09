@@ -36,7 +36,7 @@ class StockRepositoryImpl @Inject constructor(private val dao: StockDao) : Stock
         messages.shuffled()
         repeat(10){ i ->
             emit(listOf(
-                Stock(id = 1,name = "Pear (PER)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
+                Stock(id = 1,name = "Pear (PER)",price = 125.20,message = messages[i],currencySymbol = "$" ),
                 Stock(id = 2,name = "Scramsung (SCR)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
                 Stock(id = 3,name = "Hrenovo (LEN)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
                 Stock(id = 4,name = "Myasosay (MSI)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
@@ -45,8 +45,8 @@ class StockRepositoryImpl @Inject constructor(private val dao: StockDao) : Stock
                 Stock(id = 7,name = "WakeFuture (FUE)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
                 Stock(id = 8,name = "Barf (MSK)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
                 Stock(id = 9,name = "VodkaInside (VIE)",price = random.nextDouble(200.0),message = messages[i],currencySymbol = "$" ),
-            ).sortedBy { it.price })
-            delay(5000)
+            ).sortedBy { it.price }.map { if (i==random.nextInt(1,9)) it.copy(price = random.nextDouble(200.0)) else it})
+            delay(6000)
         }
     }.flowOn(Dispatchers.IO)
 

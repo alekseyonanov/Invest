@@ -79,7 +79,10 @@
         android:overScrollMode="always"
         android:paddingHorizontal="16dp"
         app:behavior_overlapTop="16dp"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:paddingBottomSystemWindowInsets="true"
+        app:paddingTopSystemWindowInsets="true"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
