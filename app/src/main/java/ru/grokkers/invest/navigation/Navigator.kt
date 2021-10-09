@@ -36,6 +36,10 @@ class Navigator @Inject constructor(private val router: Router) {
         root(Screens.Profile)
     }
 
+    fun navigateToPurse() {
+        forward(Screens.Purse)
+    }
+
     fun navigateBack() {
         router.exit()
     }

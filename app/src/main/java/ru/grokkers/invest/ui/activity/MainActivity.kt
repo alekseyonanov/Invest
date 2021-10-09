@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigation.setOnItemSelectedListener(::handleNavigationItemClick)
         binding.fab.setOnClickListener {
-            navigator.navigateToGreeting()
+            navigator.navigateToPurse()
         }
     }
 
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setFabAction(listener: (() -> Unit)? = null) {
         binding.fab.setOnClickListener {
-            listener?.invoke()
+            listener?.invoke() ?: navigator.navigateToPurse()
         }
     }
 
