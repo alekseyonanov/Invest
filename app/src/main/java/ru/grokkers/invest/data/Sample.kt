@@ -19,7 +19,66 @@ object Sample {
             category = "Вклад",
             favourite = false
         ),
-
+        Education(
+            id = 1,
+            title = "Что такое Вклад?",
+            level = 0,
+            description = "Почему стоит хранить деньги в банке и использовать вклады.",
+            content = "Какой крутой контент",
+            thumb = R.drawable.avatar_1,
+            category = "Вклад",
+            favourite = false
+        ),
+        Education(
+            id = 2,
+            title = "Фьючерс - это ... репер?",
+            level = 0,
+            description = "Расскажем, что такое фьючерсы и научим ими пользоватся.",
+            content = "Какой крутой контент",
+            thumb = R.drawable.avatar_2,
+            category = "Биржа",
+            favourite = false
+        ),
+        Education(
+            id = 10,
+            title = "Шорты",
+            level = 1,
+            description = "Что такое «шорты» или как заработать на падении акций",
+            content = "Какой крутой контент",
+            thumb = R.drawable.avatar_0,
+            category = "Вклад",
+            favourite = false
+        ),
+        Education(
+            id = 11,
+            title = "Что такое Вклад?",
+            level = 1,
+            description = "Почему стоит хранить деньги в банке и использовать вклады.",
+            content = "Какой крутой контент",
+            thumb = R.drawable.avatar_1,
+            category = "Вклад",
+            favourite = false
+        ),
+        Education(
+            id = 12,
+            title = "Фьючерс - это ... репер?",
+            level = 1,
+            description = "Расскажем, что такое фьючерсы и научим ими пользоватся.",
+            content = "Какой крутой контент",
+            thumb = R.drawable.avatar_3,
+            category = "Биржа",
+            favourite = false
+        ),
+        Education(
+            id = 22,
+            title = "Причины инфляции",
+            level = 2,
+            description = "Почему же все дорожает?",
+            content = "Какой крутой контент",
+            thumb = R.drawable.avatar_4,
+            category = "Биржа",
+            favourite = false
+        ),
     )
 
 }
