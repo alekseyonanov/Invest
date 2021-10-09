@@ -136,4 +136,9 @@ dependencies {
     * Log
     */
     implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    /*
+     * Circle Image
+     */
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
