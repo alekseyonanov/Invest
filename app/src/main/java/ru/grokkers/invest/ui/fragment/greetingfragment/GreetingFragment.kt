@@ -58,7 +58,6 @@ class GreetingFragment : BaseFragment() {
 
         viewModel.apply {
             start()
-            handleFlow(messagesState, ::setMessages)
             handleFlow(newMessageState, ::addMessage)
             handleFlow(lifestyleState, ::setLifestyleVisibility)
             handleFlow(ageState, ::setNumberInput)
@@ -70,10 +69,6 @@ class GreetingFragment : BaseFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun setMessages(messages: List<Pair<String, Boolean>>) {
-        messagesAdapter.items = messages.toMutableList()
     }
 
     private fun addMessage(message: Pair<String, Boolean>) {

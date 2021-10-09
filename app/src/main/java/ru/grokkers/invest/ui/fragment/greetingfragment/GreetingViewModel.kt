@@ -29,9 +29,6 @@ class GreetingViewModel @Inject constructor(
     private val navigator: Navigator
 ) : BaseViewModel(application) {
 
-    private val _messagesState = MutableStateFlow<List<Pair<String, Boolean>>>(listOf())
-    val messagesState = _messagesState.asStateFlow()
-
     private val _newMessageState = MutableSharedFlow<Pair<String, Boolean>>()
     val newMessageState = _newMessageState.asSharedFlow()
 
@@ -67,10 +64,12 @@ class GreetingViewModel @Inject constructor(
                         .toList()
                 iterator = greetingMessages.iterator()
 
-                emit(
-                    _messagesState,
-                    listOf(iterator.next() to false, iterator.next() to false)
-                )
+                viewModelScope.launch {
+                    for (i in 1..4) {
+                        emit(_newMessageState, iterator.next() to false)
+                        delay(3000)
+                    }
+                }
             } else {
                 navigator.navigateToWork()
             }
