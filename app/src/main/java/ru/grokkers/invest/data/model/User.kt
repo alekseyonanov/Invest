@@ -13,9 +13,12 @@ data class User(
     var name: String = "",
     var age: Int? = null,
     var userType: UserType = UserType.STUDENT,
-    var education: String = ""
+    var education: String = "",
+    var money: Int = 0
 )
 
-enum class UserType(val value: String) {
-    STUDENT("Студент"), WORKER("Работаю"), PENSIONER("На пенсии")
+enum class UserType(val value: String, val salary: Int) {
+    STUDENT("Студент", 20000),
+    WORKER("Работаю", 40000),
+    PENSIONER("На пенсии", 18000)
 }

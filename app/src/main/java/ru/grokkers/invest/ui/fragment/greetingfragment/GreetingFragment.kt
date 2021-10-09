@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.data.utils.hideKeyboard
 import ru.grokkers.invest.databinding.FragmentGreetingBinding
+import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
 import ru.grokkers.invest.ui.fragment.greetingfragment.adapter.MessagesAdapter
 
@@ -51,6 +52,8 @@ class GreetingFragment : BaseFragment() {
                 input.text = null
             }
         }
+
+        (activity as MainActivity).setNavigationVisibility(false)
 
         viewModel.apply {
             start()

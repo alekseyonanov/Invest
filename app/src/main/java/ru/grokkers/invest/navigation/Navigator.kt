@@ -27,6 +27,10 @@ class Navigator @Inject constructor(private val router: Router) {
         root(Screens.Store)
     }
 
+    fun navigateToWork() {
+        root(Screens.Work)
+    }
+
     private fun forward(screen: Screen) {
         router.navigateTo(screen)
     }

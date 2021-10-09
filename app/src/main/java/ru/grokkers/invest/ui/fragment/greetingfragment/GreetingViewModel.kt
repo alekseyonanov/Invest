@@ -72,7 +72,7 @@ class GreetingViewModel @Inject constructor(
                     listOf(iterator.next() to false, iterator.next() to false)
                 )
             } else {
-                navigator.navigateToStore()
+                navigator.navigateToWork()
             }
         }
     }
@@ -123,7 +123,7 @@ class GreetingViewModel @Inject constructor(
                 viewModelScope.launch {
                     delay(2000)
                     interactor.saveUser(user)
-                    navigator.navigateToStore()
+                    navigator.navigateToWork()
                 }
             }
         }
