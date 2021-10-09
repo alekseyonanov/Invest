@@ -1,8 +1,9 @@
 package ru.grokkers.invest.data.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
-import java.util.*
 
 /**
  * @author Onanov Aleksey (@onanov)
@@ -11,8 +12,12 @@ import java.util.*
 data class Stock(
     @PrimaryKey
     val id: Int,
-    val name: String,
+    @ColumnInfo(name = "name",index = true)
+    val name: String = "",
+    @ColumnInfo(name = "price")
     val price: Double = 0.0,
-    val currencySymbol: String,
-    val message: String,
+    @ColumnInfo(name = "currencySymbol")
+    val currencySymbol: String = "",
+    @ColumnInfo(name = "message")
+    val message: String = "",
 )

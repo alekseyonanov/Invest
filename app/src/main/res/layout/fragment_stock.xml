@@ -55,8 +55,8 @@
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:background="@color/blue20"
-                android:padding="8dp"
                 android:cropToPadding="true"
+                android:padding="8dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/silver_state"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,30 +70,53 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/store_underlayer"
         android:fillViewport="true"
-        android:overScrollMode="always"
-        android:paddingHorizontal="16dp"
+        android:overScrollMode="never"
+
         app:behavior_overlapTop="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:paddingBottomSystemWindowInsets="true"
-        app:paddingTopSystemWindowInsets="true"
-        >
+        app:paddingTopSystemWindowInsets="true">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            android:paddingTop="8dp"
-            android:paddingBottom="96dp"
-            tools:listitem="@layout/stock_item" />
+            android:layout_height="match_parent">
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/stockViewPager"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/blue100"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="2dp"
+                app:tabInlineLabel="true"
+                app:tabMaxWidth="0dp"
+                app:tabMode="fixed" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/stockViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_anchorGravity="center"
+                android:overScrollMode="never"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tabs" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 

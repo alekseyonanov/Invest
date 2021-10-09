@@ -1,9 +1,10 @@
-package ru.grokkers.invest.ui.fragment.storefragment
+package ru.grokkers.invest.ui.fragment.stockfragment.main
 
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import ru.grokkers.invest.data.model.Stock
@@ -18,18 +19,18 @@ import javax.inject.Inject
 class StockViewModel @Inject constructor(
     application: Application,
     private val repository: StockRepository,
-    val stateHandle: SavedStateHandle
+    val stateHandle: SavedStateHandle,
 ) : BaseViewModel(application) {
 
-    val stockFlow = repository.getAllStock().stateIn(viewModelScope, SharingStarted.Lazily, listOf())
+    val stockFlow =
+        repository.getAllStock().stateIn(viewModelScope, SharingStarted.Lazily, listOf())
+
+    val money = repository.getMoney().stateIn(viewModelScope, SharingStarted.Lazily, 0)
+
+
 
     override fun onStart() {
         /* no-op */
-    }
-
-
-    fun stockClick(stock : Stock){
-
     }
 
 

@@ -1,4 +1,4 @@
-package ru.grokkers.invest.ui.fragment.storefragment.adapter
+package ru.grokkers.invest.ui.fragment.stockfragment.main.adapter
 
 import androidx.core.view.isVisible
 import ru.grokkers.invest.data.model.Stock
