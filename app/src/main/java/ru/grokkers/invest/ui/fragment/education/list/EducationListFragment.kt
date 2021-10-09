@@ -85,7 +85,6 @@ class EducationListFragment : BaseFragment() {
         _binding = null
     }
 
-
     private fun handleState(state: EducationState) {
         when (state) {
             is EducationState.Success -> handleItems(state.items)
@@ -102,6 +101,9 @@ class EducationListFragment : BaseFragment() {
         depositionAdapter.submitList(items.filter { it.category == "Вклад" })
         stockAdapter.submitList(items.filter { it.category == "Биржа" })
         creditAdapter.submitList(items.filter { it.category == "Кредитование" })
+        depositionAdapter.notifyDataSetChanged()
+        stockAdapter.notifyDataSetChanged()
+        creditAdapter.notifyDataSetChanged()
     }
 
 }

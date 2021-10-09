@@ -64,6 +64,7 @@ class EducationDetailFragment : BaseFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        (activity as MainActivity).setFabAction(null)
     }
 
     private fun boundContent() {
