@@ -20,7 +20,7 @@
             android:id="@+id/data_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue30"
+            android:backgroundTint="@color/blue20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -83,7 +83,7 @@
             android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/blue90"
+            android:background="@color/blue50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/data_card" />
@@ -92,7 +92,7 @@
             android:id="@+id/money_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue30"
+            android:backgroundTint="@color/blue20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider1">
@@ -209,6 +209,7 @@
                     android:paddingVertical="10dp"
                     android:text="Кошелек"
                     android:textSize="20sp"
+                    android:backgroundTint="@color/blue50"
                     app:cornerRadius="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -222,7 +223,7 @@
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/blue90"
+            android:background="@color/blue50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/money_card" />
@@ -231,7 +232,7 @@
             android:id="@+id/credit_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue30"
+            android:backgroundTint="@color/blue20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider2">
@@ -306,7 +307,7 @@
             android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/blue90"
+            android:background="@color/blue50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/credit_card" />
@@ -315,7 +316,7 @@
             android:id="@+id/detail_data_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue30"
+            android:backgroundTint="@color/blue20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider3">
@@ -420,7 +421,7 @@
             android:id="@+id/divider4"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="@color/blue90"
+            android:background="@color/blue50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/detail_data_card" />
