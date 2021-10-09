@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import ru.grokkers.invest.data.Sample
+import ru.grokkers.invest.data.model.Education
+import ru.grokkers.invest.navigation.Navigator
 import ru.grokkers.invest.ui.base.BaseViewModel
 import ru.grokkers.invest.ui.state.EducationState
 import javax.inject.Inject
@@ -15,7 +17,10 @@ import javax.inject.Inject
  * @author Onanov Aleksey (@onanov)
  */
 @HiltViewModel
-class EducationListViewModel @Inject constructor(application: Application) :
+class EducationListViewModel @Inject constructor(
+    application: Application,
+    private val navigator: Navigator,
+) :
     BaseViewModel(application) {
 
     private val _uiState = MutableStateFlow<EducationState>(EducationState.Loading(true))
@@ -26,6 +31,10 @@ class EducationListViewModel @Inject constructor(application: Application) :
 
     override fun onStart() {
         emit(_uiState, EducationState.Success(Sample.education))
+    }
+
+    fun onItemClicked(education: Education) {
+        navigator.navigateToEducationDetails(education)
     }
 
 /*    private fun saveUser(name: String, lastName: String, password: String) {

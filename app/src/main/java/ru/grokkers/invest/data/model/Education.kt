@@ -1,11 +1,14 @@
 package ru.grokkers.invest.data.model
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.DiffUtil
+import kotlinx.parcelize.Parcelize
 
 /**
  * @author Onanov Aleksey (@onanov)
  */
+@Parcelize
 data class Education(
     val id: Int,
     val title: String,
@@ -15,7 +18,7 @@ data class Education(
     @DrawableRes val thumb: Int,
     val category: String,
     val favourite: Boolean,
-)
+) : Parcelable
 
 const val EASY = 0
 const val MEDIUM = 1
