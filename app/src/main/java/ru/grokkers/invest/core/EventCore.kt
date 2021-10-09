@@ -41,4 +41,12 @@ class EventCore @Inject constructor(
             }
         }
     }
+
+    fun resume(){
+        userEvent.resume()
+    }
+
+    fun pause(){
+        userEvent.pause()
+    }
 }

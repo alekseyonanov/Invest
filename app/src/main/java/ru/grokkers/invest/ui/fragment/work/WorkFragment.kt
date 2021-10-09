@@ -12,9 +12,6 @@ import ru.grokkers.invest.data.model.User
 import ru.grokkers.invest.databinding.FragmentWorkBinding
 import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.*
 
 /**
  * @author Nikolaevsky Dmitry (@d.nikolaevskiy)
@@ -62,6 +59,16 @@ class WorkFragment : BaseFragment() {
             binding.currentMoney.text = "${user.money}.00 ₽"
             binding.daily.text = "${(user.userType.salary / 30)}.00 ₽"
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).resumeCore()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (requireActivity() as MainActivity).pauseCore()
     }
 
     @SuppressLint("SetTextI18n")

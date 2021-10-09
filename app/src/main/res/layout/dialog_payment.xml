@@ -62,7 +62,7 @@
         android:backgroundTint="@color/blue60"
         android:paddingHorizontal="50dp"
         android:paddingVertical="10dp"
-        android:text="Кошелек"
+        android:text="Купить"
         android:textAppearance="?textAppearanceButton"
         android:textColor="@color/white"
         app:cornerRadius="8dp"

@@ -72,6 +72,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun resumeCore(){
+        eventCore.resume()
+    }
+
+    fun pauseCore(){
+        eventCore.pause()
+    }
+
     fun setNavigationVisibility(isVisible: Boolean) {
         binding.bottomAppBar.isVisible = true
         if (isVisible) {

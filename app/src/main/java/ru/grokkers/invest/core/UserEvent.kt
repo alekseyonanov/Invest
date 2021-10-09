@@ -22,10 +22,13 @@ class UserEvent constructor(
 
     private var userModel: User? = null
 
+    private var isActive = false
+
     override fun init() {
         GlobalScope.launch {
             userRepository.user().collect { user ->
                 user?.let {
+                    if (!isActive) return@let
                     userModel = it
                     processWorkUser(it)
                     processTicket(it)
@@ -35,7 +38,15 @@ class UserEvent constructor(
                 }
             }
         }
+    }
+
+    fun resume() {
+        isActive = true
         launchUserEvents()
+    }
+
+    fun pause() {
+        isActive = false
     }
 
     private suspend fun processTicket(user: User) {
@@ -77,7 +88,7 @@ class UserEvent constructor(
 
     private fun launchUserEvents() {
         GlobalScope.launch {
-            while (true) {
+            while (isActive) {
                 delay(1000)
                 when (userModel?.userType) {
                     UserType.STUDENT -> studentEvents()
