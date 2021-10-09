@@ -397,7 +397,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:text="Сфера работа:"
+                    android:text="Сфера работы:"
                     android:textColor="@color/blue100"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@id/data_image"
