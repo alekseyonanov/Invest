@@ -13,7 +13,7 @@ import ru.grokkers.invest.data.model.User
  * @author Onanov Aleksey (@onanov)
  */
 @Database(
-    version = 3,
+    version = 4,
     exportSchema = false,
     entities = [
         User::class,

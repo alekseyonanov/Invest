@@ -50,16 +50,6 @@ object Sample {
             favourite = false
         ),
         Education(
-            id = 11,
-            title = "Что такое Вклад?",
-            level = 1,
-            description = "Почему стоит хранить деньги в банке и использовать вклады.",
-            content = "Какой крутой контент",
-            thumb = R.drawable.avatar_1,
-            category = "Вклад",
-            favourite = false
-        ),
-        Education(
             id = 22,
             title = "Причины инфляции",
             level = 2,

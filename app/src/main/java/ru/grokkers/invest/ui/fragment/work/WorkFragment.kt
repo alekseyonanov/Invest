@@ -12,6 +12,9 @@ import ru.grokkers.invest.data.model.User
 import ru.grokkers.invest.databinding.FragmentWorkBinding
 import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.util.*
 
 /**
  * @author Nikolaevsky Dmitry (@d.nikolaevskiy)
@@ -56,8 +59,8 @@ class WorkFragment : BaseFragment() {
 
     private fun setData(user: User?) {
         user?.let {
-            binding.currentMoney.text = user.money.toString()
-            binding.daily.text = (user.userType.salary / 30).toString()
+            binding.currentMoney.text = "${user.money}.00 ₽"
+            binding.daily.text = "${(user.userType.salary / 30)}.00 ₽"
         }
     }
 
