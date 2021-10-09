@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION*/
 
-        navigator.navigateToGreeting()
+        navigator.navigateToStore()
 
         binding.navigation.setOnItemSelectedListener(::handleNavigationItemClick)
     }
