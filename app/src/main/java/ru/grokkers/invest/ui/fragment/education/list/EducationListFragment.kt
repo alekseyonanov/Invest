@@ -4,23 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.grokkers.invest.databinding.FragmentEducationBinding
+import dagger.hilt.android.AndroidEntryPoint
+import ru.grokkers.invest.databinding.FragmentEducationListBinding
 import ru.grokkers.invest.ui.base.BaseFragment
 
 /**
  * @author Onanov Aleksey (@onanov)
  */
+@AndroidEntryPoint
 class EducationListFragment : BaseFragment() {
 
-    private var _binding: FragmentEducationBinding? = null
-    private val binding: FragmentEducationBinding get() = _binding!!
+    private var _binding: FragmentEducationListBinding? = null
+    private val binding: FragmentEducationListBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEducationBinding.inflate(inflater, container, false)
+        _binding = FragmentEducationListBinding.inflate(inflater, container, false)
 
 
 

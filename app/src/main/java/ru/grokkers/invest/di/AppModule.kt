@@ -10,6 +10,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.grokkers.invest.data.db.AppDatabase
 import javax.inject.Singleton
@@ -38,12 +39,5 @@ object AppModule {
     fun provideNavigatorHolder(cicerone: Cicerone<Router>): NavigatorHolder {
         return cicerone.getNavigatorHolder()
     }
-
-    @Provides
-    @Singleton
-    fun provideDatabase(context: Context) =
-        Room.databaseBuilder(context, AppDatabase::class.java, "invest.db")
-            .fallbackToDestructiveMigration()
-            .build()
 
 }

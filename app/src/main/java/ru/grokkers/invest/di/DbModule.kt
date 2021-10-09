@@ -1,12 +1,13 @@
-package ru.grokkers.invest.data.db
+package ru.grokkers.invest.di
 
 import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.grokkers.invest.data.db.AppDatabase
 import javax.inject.Singleton
 
 /**
@@ -18,7 +19,7 @@ object DbModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(context: Context) =
+    fun provideDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, AppDatabase::class.java, "invest.db")
             .fallbackToDestructiveMigration()
             .build()

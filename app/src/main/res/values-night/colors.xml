@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="white">#000000</color>
+
+    <color name="reply_white_50_alpha_060">#99ffffff</color>
+    <color name="reply_blue_50_alpha_060">#99eef0f2</color>
+
+    <color name="blue10">#172030</color> <!--white-->
+    <color name="blue20">#1B2B46</color>
+    <color name="blue30">#234171</color>
+    <color name="blue40">#2B579B</color>
+    <color name="blue50">#326DC6</color>
+    <color name="blue60">#3A83F1</color> <!--primary-->
+    <color name="blue70">#5C97F1</color>
+    <color name="blue80">#7EABF0</color> <!--colorPrimaryVariant-->
+    <color name="blue900">#A0C0EF</color>
+    <color name="blue100">#C2D4EF </color> <!--black && colorOnSecondary-->
+</resources>

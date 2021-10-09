@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        navigator.navigateToGreeting()
+        navigator.navigateToStore()
     }
 
     override fun onResumeFragments() {

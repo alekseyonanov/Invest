@@ -1,14 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Invest" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Invest" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/blue60</item>
+        <item name="colorPrimaryVariant">@color/blue80</item>
+        <item name="colorOnPrimary">@color/blue100</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/blue100</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
@@ -16,4 +16,6 @@
         <!--System/Platform attributes-->
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
     </style>
+
+
 </resources>
