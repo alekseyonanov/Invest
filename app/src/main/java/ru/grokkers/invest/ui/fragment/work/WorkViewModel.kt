@@ -49,9 +49,13 @@ class WorkViewModel @Inject constructor(
 
         if (currentTime == 0 && currentUser != null) {
             currentUser!!.money += currentUser!!.userType.salary / 30
-            viewModelScope.launch {
-                interactor.updateUser(currentUser!!)
-                _userState.emit(currentUser)
+        }
+
+        viewModelScope.launch {
+            currentUser?.let {
+                ++it.clickes
+                interactor.updateUser(it)
+                _userState.emit(it)
             }
         }
     }

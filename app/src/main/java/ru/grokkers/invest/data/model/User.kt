@@ -17,7 +17,9 @@ data class User(
     var money: Int = 0,
     var creditSum: Int = 0,
     var city: String = "",
-    var workType: String = ""
+    var workType: String = "",
+    val productivity: Int = 2,
+    var clickes: Long = 0
 )
 
 enum class UserType(val value: String, val salary: Int) {

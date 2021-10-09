@@ -3,7 +3,6 @@ package ru.grokkers.invest.data.repository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 import ru.grokkers.invest.data.repository.impl.EducationRepositoryImpl
 import ru.grokkers.invest.data.repository.impl.StockRepositoryImpl

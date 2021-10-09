@@ -8,5 +8,5 @@ import javax.inject.Inject
  */
 class ProfileInteractor @Inject constructor(private val userRepository: UserRepository) {
 
-    fun loadUser() = userRepository.user()
+    suspend fun loadUser() = userRepository.user()
 }

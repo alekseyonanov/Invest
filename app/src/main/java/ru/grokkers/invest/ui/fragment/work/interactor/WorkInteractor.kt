@@ -9,7 +9,7 @@ import javax.inject.Inject
  */
 class WorkInteractor @Inject constructor(private val userRepository: UserRepository) {
 
-    fun getUser() = userRepository.user()
+    suspend fun getUser() = userRepository.user()
 
     suspend fun updateUser(user: User) {
         userRepository.update(user)
