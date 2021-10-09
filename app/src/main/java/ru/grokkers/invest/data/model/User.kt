@@ -8,7 +8,14 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "user")
 data class User(
-    @PrimaryKey
-    val id: Int,
-    val name: String,
+    @PrimaryKey(autoGenerate = true)
+    var id: Long? = null,
+    var name: String = "",
+    var age: Int? = null,
+    var userType: UserType = UserType.STUDENT,
+    var education: String = ""
 )
+
+enum class UserType(val value: String) {
+    STUDENT("Студент"), WORKER("Работаю"), PENSIONER("На пенсии")
+}

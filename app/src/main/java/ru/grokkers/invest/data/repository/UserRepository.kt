@@ -8,7 +8,7 @@ import ru.grokkers.invest.data.model.User
  */
 interface UserRepository {
 
-    fun user(): Flow<User>
+    fun user(): Flow<User?>
 
     suspend fun add(user: User)
 
