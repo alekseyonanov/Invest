@@ -78,6 +78,7 @@ class GreetingViewModel @Inject constructor(
 
     fun onSendClicked(string: String) {
         emit(_newMessageState, Pair(string, true))
+        if (!iterator.hasNext()) return
         when (currentStep) {
             RegistrationSteps.NAME -> {
                 user.name = string
@@ -120,7 +121,7 @@ class GreetingViewModel @Inject constructor(
                 }, 1000)
 
                 viewModelScope.launch {
-                    delay(2000)
+                    delay(5000)
                     interactor.saveUser(user)
                     navigator.navigateToWork()
                 }
