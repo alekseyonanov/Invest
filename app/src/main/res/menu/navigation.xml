@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/job"
+        android:icon="@drawable/ic_job"
+        android:title="Работа" />
+
+    <item
+        android:id="@+id/store"
+        android:icon="@drawable/ic_store"
+        android:title="Рынок" />
+
+    <item
+        android:id="@+id/education"
+        android:icon="@drawable/ic_education"
+        android:title="Обучение" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Профиль" />
+</menu>

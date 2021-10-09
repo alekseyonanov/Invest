@@ -1,6 +1,8 @@
 package ru.grokkers.invest.ui.activity
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.github.terrakok.cicerone.NavigatorHolder
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +29,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        navigator.navigateToStore()
+        binding.root.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+
+        navigator.navigateToGreeting()
+
+        binding.navigation.setOnItemSelectedListener(::handleNavigationItemClick)
     }
 
     override fun onResumeFragments() {
@@ -38,6 +46,18 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         navigatorHolder.removeNavigator()
         super.onPause()
+    }
+
+    private fun handleNavigationItemClick(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.job -> navigator.navigateToEducationList()
+            R.id.store -> navigator.navigateToStore()
+            R.id.education -> navigator.navigateToEducationList()
+            R.id.profile -> navigator.navigateToEducationList()
+        }
+        return true
+
     }
 
 }

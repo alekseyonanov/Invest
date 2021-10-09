@@ -1,11 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingTop="@dimen/grid_0_25"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     app:paddingBottomSystemWindowInsets="true"
     app:paddingTopSystemWindowInsets="true">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plane_16"
+            android:layout_marginTop="@dimen/plane_16"
+            android:text="Обучение"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/easy_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plane_16"
+            android:layout_marginTop="@dimen/plane_16"
+            android:text="Необходимый старт"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/easy_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:paddingTop="@dimen/plane_08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/easy_title"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_education" />
+
+        <TextView
+            android:id="@+id/medium_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plane_16"
+            android:layout_marginTop="@dimen/plane_16"
+            android:text="Уверенно"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/easy_recycler_view" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/medium_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/plane_08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/medium_title"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_education" />
+
+        <TextView
+            android:id="@+id/hard_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plane_16"
+            android:layout_marginTop="@dimen/plane_16"
+            android:text="Супер сложно"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/medium_recycler_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hard_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/plane_08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hard_title"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_education" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

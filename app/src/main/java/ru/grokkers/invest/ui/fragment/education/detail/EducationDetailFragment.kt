@@ -21,8 +21,12 @@ class EducationDetailFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        _binding = FragmentEducationDetailBinding.inflate(inflater, container, false)
+
+
+
+        return binding.root
     }
 
     override fun onDestroyView() {

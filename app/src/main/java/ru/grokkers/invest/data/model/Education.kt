@@ -1,17 +1,29 @@
 package ru.grokkers.invest.data.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.annotation.DrawableRes
+import androidx.recyclerview.widget.DiffUtil
 
 /**
  * @author Onanov Aleksey (@onanov)
  */
-@Entity(tableName = "education")
 data class Education(
-    @PrimaryKey
     val id: Int,
     val title: String,
     val level: Int,
     val description: String,
     val content: String,
+    @DrawableRes val thumb: Int,
+    val category: String,
+    val favourite: Boolean,
 )
+
+const val EASY = 0
+const val MEDIUM = 1
+const val HARD = 2
+
+
+object EducationDiffCallback : DiffUtil.ItemCallback<Education>() {
+    override fun areItemsTheSame(oldItem: Education, newItem: Education) = oldItem.id == newItem.id
+    override fun areContentsTheSame(oldItem: Education, newItem: Education) = oldItem == newItem
+}
+

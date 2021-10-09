@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,11 +12,25 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <!--    <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:hideOnScroll="true">-->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:visibility="gone" />
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/navigation" />
+    <!--    </com.google.android.material.bottomappbar.BottomAppBar>-->
 
 </LinearLayout>

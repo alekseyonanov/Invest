@@ -1,12 +1,12 @@
 package ru.grokkers.invest.ui.fragment.education.list
 
 import android.app.Application
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import ru.grokkers.invest.data.Sample
 import ru.grokkers.invest.ui.base.BaseViewModel
 import ru.grokkers.invest.ui.state.EducationState
 import javax.inject.Inject
@@ -15,7 +15,8 @@ import javax.inject.Inject
  * @author Onanov Aleksey (@onanov)
  */
 @HiltViewModel
-class EducationListViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
+class EducationListViewModel @Inject constructor(application: Application) :
+    BaseViewModel(application) {
 
     private val _uiState = MutableStateFlow<EducationState>(EducationState.Loading(true))
     val uiState = _uiState.asStateFlow()
@@ -24,7 +25,7 @@ class EducationListViewModel @Inject constructor(application: Application) : Bas
     val apiError = _apiError.asSharedFlow()
 
     override fun onStart() {
-
+        emit(_uiState, EducationState.Success(Sample.education))
     }
 
 /*    private fun saveUser(name: String, lastName: String, password: String) {

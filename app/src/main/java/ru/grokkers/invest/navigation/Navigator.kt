@@ -15,8 +15,12 @@ class Navigator @Inject constructor(private val router: Router) {
         root(Screens.Greeting)
     }
 
-    fun navigateToEducation() {
-        root(Screens.Education)
+    fun navigateToEducationList() {
+        root(Screens.EducationList)
+    }
+
+    fun navigateToEducationDetails() {
+        forward(Screens.EducationDetails)
     }
 
     fun navigateToStore() {
