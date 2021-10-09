@@ -1,6 +1,7 @@
 package ru.grokkers.invest.data.db.dao
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 import ru.grokkers.invest.data.model.User
 
 /**
@@ -12,7 +13,7 @@ import ru.grokkers.invest.data.model.User
 interface UserDao {
 
     @Query("SELECT * FROM user LIMIT 1")
-    suspend fun user(): User?
+    fun user(): Flow<User?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(user: User)

@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import com.github.terrakok.cicerone.NavigatorHolder
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.R
+import ru.grokkers.invest.core.EventCore
 import ru.grokkers.invest.databinding.ActivityMainBinding
 import ru.grokkers.invest.navigation.ApplicationNavigator
 import ru.grokkers.invest.navigation.Navigator
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var navigator: Navigator
 
+    @Inject
+    lateinit var eventCore: EventCore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Invest)
         super.onCreate(savedInstanceState)
@@ -41,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             navigator.navigateToPurse()
         }
+
+        eventCore.init(this)
     }
 
     override fun onResumeFragments() {
