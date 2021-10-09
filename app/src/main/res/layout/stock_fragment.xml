@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ru.grokkers.invest.ui.view.NestedCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:colorBackground"
-    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    android:background="?android:colorBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -57,10 +56,14 @@
                 android:layout_height="56dp"
                 android:background="@color/blue20"
                 android:padding="8dp"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/silver_state"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/circle"
-                app:strokeColor="@color/blue40" />
+                app:strokeColor="@color/blue20"
+                app:strokeWidth="1dp" />
 
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
@@ -72,11 +75,9 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/store_underlayer"
-        android:clipToPadding="false"
         android:fillViewport="true"
         android:overScrollMode="always"
         android:paddingHorizontal="16dp"
-        android:paddingBottom="84dp"
         app:behavior_overlapTop="16dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
@@ -94,4 +95,4 @@
     </androidx.core.widget.NestedScrollView>
 
 
-</ru.grokkers.invest.ui.view.NestedCoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
