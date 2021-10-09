@@ -12,6 +12,7 @@ import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
 import ru.grokkers.invest.R
 import ru.grokkers.invest.databinding.StockFragmentBinding
+import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
 import ru.grokkers.invest.ui.fragment.storefragment.adapter.StockListAdapter
 
@@ -32,6 +33,10 @@ class StockFragment : BaseFragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = StockFragmentBinding.inflate(inflater, container, false);
+
+        (activity as MainActivity).setNavigationVisibility(true)
+        (activity as MainActivity).setFabIcon(R.drawable.ic_money)
+
         binding.appbar.addOnOffsetChangedListener(offsetChangedListener)
         StockListAdapter().also { stockAdapter ->
             stockAdapter.onStockClick = viewModel::stockClick

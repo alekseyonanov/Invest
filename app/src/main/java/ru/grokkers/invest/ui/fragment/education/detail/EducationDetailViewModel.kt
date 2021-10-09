@@ -9,8 +9,6 @@ import ru.grokkers.invest.ui.base.BaseViewModel
 import javax.inject.Inject
 
 /**
- *
- *
  * @author Onanov Aleksey (@onanov)
  */
 @HiltViewModel
