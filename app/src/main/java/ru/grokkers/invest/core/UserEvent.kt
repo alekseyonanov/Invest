@@ -39,7 +39,7 @@ class UserEvent constructor(
     }
 
     private suspend fun processTicket(user: User) {
-        val isEvent = Random.nextInt(0, 120) == 1
+        val isEvent = Random.nextInt(0, 250) == 60
         if (user.clickes > lastClickes && isEvent) {
             eventListener.invoke(Events.TICKET)
             user.money -= 1000
@@ -48,7 +48,7 @@ class UserEvent constructor(
     }
 
     private suspend fun processWorkUser(user: User) {
-        val isEvent = Random.nextInt(0, 70) == 1
+        val isEvent = Random.nextInt(0, 200) == 100
 
         if (isEvent) {
             when {
@@ -92,13 +92,13 @@ class UserEvent constructor(
     private suspend fun workersEvents() {
         userModel?.let {
             val event = when {
-                Random.nextInt(1, 50) == 25 -> {
+                Random.nextInt(1, 100) == 25 -> {
                     if (Random.nextBoolean()) Events.HOME else Events.INTERNET
                 }
-                Random.nextInt(1, 200) == 100 -> {
+                Random.nextInt(1, 250) == 100 -> {
                     Events.TELEPHONE
                 }
-                Random.nextInt(1, 100) == 50 -> {
+                Random.nextInt(1, 150) == 50 -> {
                     if (Random.nextBoolean()) Events.CLOTHES else Events.FRIENDS
                 }
                 else -> null
@@ -122,15 +122,15 @@ class UserEvent constructor(
                 }
                 Random.nextInt(1, 200) == 50 -> {
                     eventListener.invoke(Events.TRANSPORT)
-                    it.productivity = 1
+                    it.money -= Events.TRANSPORT.model.value
                 }
                 Random.nextInt(1, 300) == 100 -> {
                     eventListener.invoke(Events.EXAM)
-                    it.productivity = 1
+                    it.money -= Events.EXAM.model.value
                 }
                 Random.nextInt(1, 400) == 50 -> {
                     eventListener.invoke(Events.TECHNIQUE)
-                    it.money -= Events.TRANSPORT.model.value
+                    it.money -= Events.TECHNIQUE.model.value
                     it.clickes -= 100
                 }
             }
@@ -145,7 +145,7 @@ class UserEvent constructor(
     private suspend fun pensionerEvents() {
         userModel?.let {
             when {
-                Random.nextInt(1, 50) == 25 -> {
+                Random.nextInt(1, 80) == 25 -> {
                     eventListener.invoke(Events.HELP)
                     it.money -= Events.HELP.model.value
                 }
@@ -153,7 +153,7 @@ class UserEvent constructor(
                     eventListener.invoke(Events.MEDICAL)
                     it.money -= Events.MEDICAL.model.value
                 }
-                Random.nextInt(1, 100) == 50 -> {
+                Random.nextInt(1, 150) == 50 -> {
                     eventListener.invoke(Events.GOVERNMENT)
                     it.money -= Events.GOVERNMENT.model.value
                 }
