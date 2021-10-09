@@ -11,7 +11,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import ru.grokkers.invest.data.utils.hideKeyboard
 import ru.grokkers.invest.databinding.FragmentGreetingBinding
 import ru.grokkers.invest.ui.activity.MainActivity
 import ru.grokkers.invest.ui.base.BaseFragment
@@ -77,16 +76,15 @@ class GreetingFragment : BaseFragment() {
     }
 
     private fun setLifestyleVisibility(isVisible: Boolean) {
-        binding.lifestyle.isVisible = isVisible
+        binding.lifestyleContainer.isVisible = isVisible
         binding.input.isFocusable = !isVisible
         binding.input.isFocusableInTouchMode = !isVisible
-        if (isVisible) hideKeyboard()
 
         binding.lifestyle.setOnCheckedChangeListener { radioGroup, i ->
             if (i >= 0) {
                 val button = radioGroup[i - 1] as RadioButton
                 if (button.isChecked) {
-                    binding.input.setText(button.text)
+                    viewModel.onSendClicked(button.text.toString())
                 }
             }
         }

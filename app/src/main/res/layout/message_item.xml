@@ -14,13 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="0dp"
+        app:cardElevation="0dp"
         android:visibility="gone"
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/blue80"
+        android:backgroundTint="@color/white"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:paddingVertical="10dp"
             android:paddingHorizontal="16dp"
-            android:textColor="@color/blue10"
+            android:textColor="@color/blue100"
             android:textSize="16sp"
             tools:text="Тестовое" />
 
@@ -41,6 +42,7 @@
         android:layout_height="wrap_content"
         android:elevation="0dp"
         android:visibility="visible"
+        app:cardElevation="0dp"
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
