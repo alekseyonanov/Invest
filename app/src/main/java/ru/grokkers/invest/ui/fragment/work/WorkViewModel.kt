@@ -27,7 +27,7 @@ class WorkViewModel @Inject constructor(
 
     private var currentUser: User? = null
 
-    private var currentTime = 0
+    private var currentTime = 8
 
     override fun onStart() {
         viewModelScope.launch {
