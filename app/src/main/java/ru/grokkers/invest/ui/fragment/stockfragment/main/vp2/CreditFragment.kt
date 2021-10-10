@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.grokkers.invest.databinding.FragmentInvestmentsBinding
 import ru.grokkers.invest.ui.base.BaseFragment
-import ru.grokkers.invest.ui.fragment.stockfragment.main.StockViewModel
-import ru.grokkers.invest.ui.fragment.stockfragment.main.adapter.StockListAdapter
+import ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.investment.CreditViewModel
+import ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.investment.adapter.CreditAdapter
 
 /**
  * @author Doroshenko Vyacheslav
@@ -21,7 +21,7 @@ class CreditFragment : BaseFragment() {
     private var _binding: FragmentInvestmentsBinding? = null
     private val binding: FragmentInvestmentsBinding by lazy { _binding!! }
 
-    private val viewModel by viewModels<StockViewModel>()
+    private val viewModel by viewModels<CreditViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +29,8 @@ class CreditFragment : BaseFragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentInvestmentsBinding.inflate(inflater, container, false);
-        StockListAdapter().also { stockAdapter ->
-            stockAdapter.onStockClick = {
+        CreditAdapter().also { stockAdapter ->
+            stockAdapter.onInvestmentClicked = {
 
             }
             binding.recycler.apply {
@@ -45,7 +45,7 @@ class CreditFragment : BaseFragment() {
                 startActivity(intent)
             }
             viewModel.start()
-            handleFlow(viewModel.stockFlow, stockAdapter::submitList)
+            handleFlow(viewModel.investmentsState, stockAdapter::submitList)
         }
         return binding.root
     }

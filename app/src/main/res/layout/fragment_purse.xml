@@ -1,18 +1,429 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:paddingBottom="96dp"
+    android:paddingTop="@dimen/grid_0_25"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:paddingBottomSystemWindowInsets="true"
+    app:paddingTopSystemWindowInsets="true">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Я пустой\nи мне норм"
-        android:layout_marginHorizontal="@dimen/plane_16"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAppearance="?textAppearanceHeadline3" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/plane_16"
+            android:layout_marginTop="@dimen/plane_16"
+            android:text="Кошелек"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/money_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/plane_16"
+            android:background="@color/white"
+            android:padding="@dimen/plane_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
+
+            <TextView
+                android:id="@+id/finance_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Финансы"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/salary_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Дневная зарплата"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/finance_title" />
+
+            <TextView
+                android:id="@+id/salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/salary_title" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/salary" />
+
+            <TextView
+                android:id="@+id/money_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Количество свободных денег"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/money_title" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/money" />
+
+            <TextView
+                android:id="@+id/invest_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Денег в инвестициях"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+            <TextView
+                android:id="@+id/invest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/invest_title" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/invest" />
+
+            <TextView
+                android:id="@+id/deposit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Денег во вкладах"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+            <TextView
+                android:id="@+id/deposit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/deposit_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/credit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/money_card">
+
+            <TextView
+                android:id="@+id/credit_title_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Кредиты"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/credit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Активных кредитов на"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/credit_title_top" />
+
+            <TextView
+                android:id="@+id/credit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/credit_title" />
+
+            <View
+                android:id="@+id/divider10"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/credit" />
+
+            <TextView
+                android:id="@+id/month_credit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Ежемесячный платёж"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider10" />
+
+            <TextView
+                android:id="@+id/month_credit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/month_credit_title" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/month_credit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/deposit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/credit_card">
+
+            <TextView
+                android:id="@+id/credit_title_top1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вклады"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/credit_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Активных вкладов на"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/credit_title_top1" />
+
+            <TextView
+                android:id="@+id/credit1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/credit_title1" />
+
+            <View
+                android:id="@+id/divider101"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/credit1" />
+
+            <TextView
+                android:id="@+id/month_credit_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Ежемесячная прибыль"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider101" />
+
+            <TextView
+                android:id="@+id/month_credit1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/month_credit_title1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/month_credit1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/deposit_card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deposit_card">
+
+            <TextView
+                android:id="@+id/credit_title_top12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Инвестиции"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/blue60"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/credit_title12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Активных ивенстиций на"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/credit_title_top12" />
+
+            <TextView
+                android:id="@+id/credit12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/credit_title12" />
+
+            <View
+                android:id="@+id/divider1012"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/credit12" />
+
+            <TextView
+                android:id="@+id/month_credit_title12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Потенцильная ежемесячная прибыль"
+                android:textAppearance="?textAppearanceBody2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider1012" />
+
+            <TextView
+                android:id="@+id/month_credit12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0 ₽"
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="@color/blue90"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/month_credit_title12" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_light"
+                app:layout_constraintTop_toBottomOf="@id/month_credit12" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

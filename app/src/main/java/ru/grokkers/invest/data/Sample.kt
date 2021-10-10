@@ -225,4 +225,29 @@ object Sample {
             reliability = 0.8
         )
     )
+
+    val credit = listOf(
+        Investment(
+            title = "Кредит на любые цели",
+            owner = "ВТБ",
+            percent = 6
+        ),
+        Investment(
+            title = "Рефинансирование кредитов",
+            owner = "ВТБ",
+            percent = 6
+        ),
+        Investment(
+            title = "Супер кредит только сегодня",
+            owner = "Хайпуши",
+            percent = 20,
+            reliability = 0.1
+        ),
+        Investment(
+            title = "Кредит на почти любые цели",
+            owner = "Желткофф",
+            percent = 15,
+            reliability = 0.8
+        )
+    )
 }
