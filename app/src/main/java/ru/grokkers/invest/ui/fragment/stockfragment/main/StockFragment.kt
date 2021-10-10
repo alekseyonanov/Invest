@@ -1,5 +1,7 @@
 package ru.grokkers.invest.ui.fragment.stockfragment.main
 
+import android.icu.text.DecimalFormat
+import android.icu.text.NumberFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,11 +58,16 @@ class StockFragment : BaseFragment() {
     }
 
     private fun setMoney(money: Int) {
-        binding.profit.text = "$money $"
+        val formatter: NumberFormat = DecimalFormat("#,###")
+        binding.profit.text = fetchCurrency(money, formatter)
     }
 
-    private fun openDialog(stock: Stock){
-        DialogFragment().show(parentFragmentManager,"ssa")
+    private fun fetchCurrency(value: Int, formatter: NumberFormat): String {
+        return "${formatter.format(value)}.00 ₽"
+    }
+
+    private fun openDialog(stock: Stock) {
+        DialogFragment().show(parentFragmentManager, "ssa")
     }
 
     private val offsetChangedListener =
