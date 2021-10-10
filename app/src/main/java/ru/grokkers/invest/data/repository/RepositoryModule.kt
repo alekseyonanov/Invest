@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ru.grokkers.invest.data.repository.impl.EducationRepositoryImpl
+import ru.grokkers.invest.data.repository.impl.InvestmentRepositoryImpl
 import ru.grokkers.invest.data.repository.impl.StockRepositoryImpl
 import ru.grokkers.invest.data.repository.impl.UserRepositoryImpl
 
@@ -23,5 +24,8 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun educationRepository(repository: EducationRepositoryImpl): EducationRepository
+
+    @Binds
+    abstract fun investmentRepository(repository: InvestmentRepositoryImpl): InvestmentRepository
 
 }

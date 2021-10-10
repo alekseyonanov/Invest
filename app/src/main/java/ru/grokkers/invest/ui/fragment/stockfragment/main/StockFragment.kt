@@ -49,8 +49,8 @@ class StockFragment : BaseFragment() {
         TabLayoutMediator(binding.tabs, binding.stockViewPager) { tab, position ->
             when (position) {
                 0 -> tab.text = "АКЦИИ"
-                1 -> tab.text = "ИНВЕСТИЦИИ"
-                else -> tab.text = "КРЕДИТЫ"
+                1 -> tab.text = "КРЕДИТЫ"
+                else -> tab.text = "ВКЛАДЫ"
             }
         }.attach()
     }

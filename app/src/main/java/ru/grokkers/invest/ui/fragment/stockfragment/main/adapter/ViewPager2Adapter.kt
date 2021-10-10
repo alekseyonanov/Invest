@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.ContributionsFragment
 import ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.CreditFragment
-import ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.InvestmentsFragment
+import ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.investment.InvestmentsFragment
 
 /**
  * @author Doroshenko Vyacheslav
