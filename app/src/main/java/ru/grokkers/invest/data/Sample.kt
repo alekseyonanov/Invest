@@ -118,7 +118,7 @@ object Sample {
                     "<p class=\"has-line-data\" data-line-start=\"73\" data-line-end=\"74\">Кроме того, без брокера вы не сможете инвестировать — все сделки на бирже может совершать только он.</p>\n" +
                     "<p class=\"has-line-data\" data-line-start=\"75\" data-line-end=\"76\">В следующем уроке поговорим о том, что такое биржа, как выбрать брокера, открыть брокерский счёт и наконец-то сделать свою первую инвестицию.</p>",
             thumb = R.drawable.ic_deposit,
-            category = "Вклад",
+            category = "Биржа",
             favourite = false,
             price = 1000
         ),

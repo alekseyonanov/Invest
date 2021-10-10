@@ -19,7 +19,10 @@ data class User(
     var city: String = "",
     var workType: String = "",
     var productivity: Int = 2,
-    var clickes: Long = 0
+    var clickes: Long = 0,
+    var hasBoughtCredit: Boolean = false,
+    var hasBoughtInvestment: Boolean = false,
+    var hasBoughtDeposit: Boolean = false,
 )
 
 enum class UserType(val value: String, val salary: Int) {

@@ -58,6 +58,9 @@ class EducationListViewModel @Inject constructor(
     fun onPaymentSuccess(education: Education) {
         educationRepository.purchased(education.id)
         user.money -= education.price
+
+        processPayment(education)
+
         viewModelScope.launch {
             userRepository.update(user)
         }
@@ -65,22 +68,16 @@ class EducationListViewModel @Inject constructor(
         loadContent()
     }
 
+    private fun processPayment(education: Education) {
+        when (education.category) {
+            "Вклад" -> user.hasBoughtDeposit = true
+            "Биржа" -> user.hasBoughtInvestment = true
+            "Кредитование" -> user.hasBoughtCredit = true
+        }
+    }
+
     private fun loadContent() {
         emit(_uiState, EducationState.Success(educationRepository.educations()))
     }
-
-/*    private fun saveUser(name: String, lastName: String, password: String) {
-        interactor.saveUser(name, lastName, password, phone)
-            .onStart { _uiState.emit(AuthState.Loading(true)) }
-            .onEach { activityRouter.navigateTo("Map") }
-            .onCompletion { _uiState.emit(AuthState.Loading(false)) }
-            .catch { cause ->
-                when (cause) {
-                    is ApiException -> _uiState.emit(AuthState.Error)
-                    else -> _apiError.emit(ApiError(cause.message ?: ""))
-                }
-            }
-            .launchIn(viewModelScope)
-    }*/
 
 }

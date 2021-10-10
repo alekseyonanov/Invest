@@ -14,5 +14,6 @@ data class Investment(
     var owner: String = "",
     var sum: Int = 0,
     var percent: Int = 0,
-    var reliability: Double = 1.0
+    var reliability: Double = 1.0,
+    var isExtended: Boolean = false
 )

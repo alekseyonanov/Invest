@@ -20,4 +20,8 @@ data class Stock(
     val currencySymbol: String = "",
     @ColumnInfo(name = "message")
     val message: String = "",
+    @ColumnInfo(name = "isExtended")
+    var isExtended: Boolean = false,
+    @ColumnInfo(name = "reliability")
+    val reliability: Double = 0.5,
 )

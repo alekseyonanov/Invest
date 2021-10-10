@@ -1,5 +1,6 @@
 package ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.investment.adapter
 
+import androidx.core.view.isVisible
 import ru.grokkers.invest.data.model.Investment
 import ru.grokkers.invest.databinding.ItemInvestmentBinding
 import ru.grokkers.invest.ui.base.BaseViewHolder
@@ -18,5 +19,10 @@ class InvestmentViewHolder(
         binding.title.text = model.title
         binding.sum.text = model.sum.toString()
         binding.owner.text = model.owner
+        binding.sum.text = "${model.percent} %"
+        if (model.isExtended) {
+            binding.reliability.isVisible = true
+            binding.reliability.text = "Доверие: ${(model.reliability * 100).toInt()} %"
+        }
     }
 }

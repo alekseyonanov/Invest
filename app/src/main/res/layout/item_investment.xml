@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/blue20"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
     android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    app:cardBackgroundColor="@color/blue20"
     app:cardCornerRadius="32dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,14 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/store_text_background"
-            android:paddingVertical="4dp"
             android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/owner"
             app:layout_constraintEnd_toStartOf="@+id/sum"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/guideline_start"
             app:layout_constraintTop_toBottomOf="@id/guideline_top"
-            app:layout_constraintBottom_toTopOf="@+id/owner"
             tools:text="Stock sample name" />
 
 
@@ -56,11 +56,25 @@
             android:paddingHorizontal="8dp"
             android:paddingVertical="4dp"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+            app:layout_constraintBottom_toTopOf="@id/reliability"
             app:layout_constraintEnd_toStartOf="@+id/guideline_end"
             app:layout_constraintStart_toEndOf="@+id/guideline_start"
             app:layout_constraintTop_toBottomOf="@+id/title"
             tools:text="Kill all humans, must kill all humans. CEO Bender" />
+
+        <TextView
+            android:id="@+id/reliability"
+            style="@style/Caption_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:paddingHorizontal="8dp"
+            android:text="Доверие: 0%"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+            app:layout_constraintStart_toEndOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/owner" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_start"

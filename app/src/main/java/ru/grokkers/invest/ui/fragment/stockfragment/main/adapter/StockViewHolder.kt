@@ -23,5 +23,9 @@ class StockViewHolder(
         binding.price.text = price
         binding.event.isVisible = model.message.isNotEmpty()
         binding.event.text = model.message ?: ""
+        if (model.isExtended) {
+            binding.reliability.isVisible = true
+            binding.reliability.text = "Доверие: ${(model.reliability * 100).toInt()} %"
+        }
     }
 }

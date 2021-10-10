@@ -3,7 +3,9 @@ package ru.grokkers.invest.ui.fragment.stockfragment.main.vp2.investment
 import android.app.Application
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import ru.grokkers.invest.data.Sample
 import ru.grokkers.invest.data.model.Investment
@@ -20,7 +22,7 @@ class InvestmentViewModel @Inject constructor(
     private val interactor: InvestmentInteractor
 ) : BaseViewModel(application) {
 
-    val investmentsState = interactor.getItems()
+    lateinit var investmentsState: Flow<List<Investment>>
 
     private var user: User? = null
 
@@ -28,6 +30,13 @@ class InvestmentViewModel @Inject constructor(
         viewModelScope.launch {
             interactor.getUser().collect {
                 user = it
+            }
+        }
+
+        investmentsState = interactor.getItems().map {
+            it.map {
+                it.isExtended = user?.hasBoughtDeposit == true
+                it
             }
         }
     }

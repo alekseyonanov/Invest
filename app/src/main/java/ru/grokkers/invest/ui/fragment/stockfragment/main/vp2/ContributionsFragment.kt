@@ -1,5 +1,7 @@
 package ru.grokkers.invest.ui.fragment.stockfragment.main.vp2
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,6 +38,16 @@ class ContributionsFragment : BaseFragment() {
                 adapter = stockAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
+
+            binding.vtb.setOnClickListener {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.vtb.ru/personal/investicii")
+                )
+                startActivity(intent)
+            }
+
+            viewModel.start()
             handleFlow(viewModel.stockFlow, stockAdapter::submitList)
         }
         return binding.root
