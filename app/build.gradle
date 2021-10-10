@@ -8,8 +8,8 @@ plugins {
 
 ext {
     applicationName = "Invest"
-    majorVersion = 0
-    minorVersion = 1
+    majorVersion = 1
+    minorVersion = 0
     patchVersion = 0
 }
 
