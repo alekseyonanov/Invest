@@ -10,6 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.grokkers.invest.core.model.Events
+import ru.grokkers.invest.data.repository.InvestmentRepository
 import ru.grokkers.invest.data.repository.UserRepository
 import javax.inject.Inject
 
@@ -17,14 +18,17 @@ import javax.inject.Inject
  * @author Nikolaevsky Dmitry (@d.nikolaevskiy)
  */
 class EventCore @Inject constructor(
-    userRepository: UserRepository
-)  {
+    userRepository: UserRepository,
+    investmentRepository: InvestmentRepository
+) {
 
     private val userEvent = UserEvent(userRepository, ::onEvent)
+    private val investEvent = InvestEvent(investmentRepository, userRepository)
     private lateinit var context: Context
 
     fun init(activityContext: Context) {
         userEvent.init()
+        investEvent.init()
         context = activityContext
     }
 
@@ -42,11 +46,11 @@ class EventCore @Inject constructor(
         }
     }
 
-    fun resume(){
+    fun resume() {
         userEvent.resume()
     }
 
-    fun pause(){
+    fun pause() {
         userEvent.pause()
     }
 }

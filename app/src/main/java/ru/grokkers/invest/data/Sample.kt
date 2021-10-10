@@ -2,6 +2,7 @@ package ru.grokkers.invest.data
 
 import ru.grokkers.invest.R
 import ru.grokkers.invest.data.model.Education
+import ru.grokkers.invest.data.model.Investment
 
 /**
  * @author Onanov Aleksey (@onanov)
@@ -200,4 +201,28 @@ object Sample {
         ),
     )
 
+    val investments = listOf(
+        Investment(
+            title = "Накопительный счёт \"Копилка\"",
+            owner = "ВТБ",
+            percent = 5
+        ),
+        Investment(
+            title = "Вклад на долгий срок",
+            owner = "ВТБ",
+            percent = 6
+        ),
+        Investment(
+            title = "Вклад быстрые деньги",
+            owner = "Хайпуши",
+            percent = 40,
+            reliability = 0.1
+        ),
+        Investment(
+            title = "Инвестиционная копилка",
+            owner = "Желткофф",
+            percent = 15,
+            reliability = 0.8
+        )
+    )
 }
